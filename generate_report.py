@@ -232,6 +232,15 @@ def generate_weekly_html(analysis, articles_data=None):
     # --- Article Classifications ---
     articles_html = ""
     if classifications:
+        # 建立标题→链接映射（从原始文章数据）
+        title_to_link = {}
+        if articles_data:
+            raw_articles = articles_data.get("articles", articles_data) if isinstance(articles_data, dict) else articles_data
+            if isinstance(raw_articles, list):
+                for art in raw_articles:
+                    if isinstance(art, dict) and art.get("title") and art.get("link"):
+                        title_to_link[art["title"]] = art["link"]
+
         # 按 rtc_relevance 排序
         relevance_order = {"high": 0, "medium": 1, "low": 2, "none": 3}
         sorted_cls = sorted(classifications, key=lambda x: relevance_order.get(x.get("rtc_relevance", "none"), 4))
@@ -246,8 +255,14 @@ def generate_weekly_html(analysis, articles_data=None):
             rel_labels = {"high": "⬤ 高", "medium": "◉ 中", "low": "○ 低", "none": "· 无"}
 
             tracks_tags = " ".join(build_track_tag(t) for t in cls.get("tracks", []))
+            title = cls.get("title", "")
+            link = title_to_link.get(title, "")
+            if link:
+                title_html = f'<a href="{html_escape(link)}" target="_blank" style="color:var(--accent2);text-decoration:none;border-bottom:1px dashed var(--accent2);">{html_escape(title)}</a>'
+            else:
+                title_html = f'<strong>{html_escape(title)}</strong>'
             articles_html += f'''<tr>
-                <td style="max-width:300px;"><strong>{html_escape(cls.get("title", ""))}</strong></td>
+                <td style="max-width:300px;">{title_html}</td>
                 <td>{tracks_tags}</td>
                 <td style="color:{rel_colors.get(relevance, "var(--text2)")}">{rel_labels.get(relevance, relevance)}</td>
                 <td style="font-size:12px;color:var(--text2);">{html_escape(cls.get("summary", ""))}</td>

@@ -28,7 +28,7 @@
       "first_seen_article": "半年后旧梗重启，在新兴市场月入百万？",
       "first_seen_source": "白鲸出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/e6MJvyzuIDQDGCJuKtoWtw",
-      "mention_count": 2,
+      "mention_count": 3,
       "weeks_mentioned": [
         "2026-02-24 ~ 2026-03-02",
         "2026-03-01 ~ 2026-03-07"
@@ -46,7 +46,7 @@
       "first_seen_article": "a16z领投200万美元，一款产品瞄准北美Alpha世代社交市场",
       "first_seen_source": "扬帆出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/MM5koxxxP2MAY5MGbeqLlw",
-      "mention_count": 2,
+      "mention_count": 3,
       "weeks_mentioned": [
         "2026-02-24 ~ 2026-03-02",
         "2026-03-01 ~ 2026-03-07"
@@ -231,7 +231,7 @@
       "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
       "first_seen_source": "白鲸出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
-      "mention_count": 4,
+      "mention_count": 5,
       "weeks_mentioned": [
         "2026-02-24 ~ 2026-03-02",
         "2026-03-03 ~ 2026-03-09",
@@ -250,7 +250,7 @@
       "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
       "first_seen_source": "白鲸出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
-      "mention_count": 12,
+      "mention_count": 14,
       "weeks_mentioned": [
         "2026-02-24 ~ 2026-03-02",
         "2026-03-03 ~ 2026-03-09",
@@ -883,7 +883,7 @@
       "first_seen_article": "AI语音输入法，人类进入“不打字”时代",
       "first_seen_source": "白鲸出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/gRah2s_FxAokdWZWejRdAA",
-      "mention_count": 10,
+      "mention_count": 11,
       "weeks_mentioned": [
         "2026-03-09 ~ 2026-03-15",
         "2026-03-08 ~ 2026-03-15"
@@ -1063,7 +1063,7 @@
       "first_seen_article": "“种花送花”游戏成出海新宠；北京厂商推新合成产品；贪玩、紫龙、易幻携新游冲榜丨2月榜单解读",
       "first_seen_source": "扬帆出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/J71TDDjb8SXV8arDG7cvbw",
-      "mention_count": 8,
+      "mention_count": 9,
       "weeks_mentioned": [
         "2026-03-09 ~ 2026-03-15",
         "2026-03-03 ~ 2026-03-09",
@@ -1131,7 +1131,7 @@
       "first_seen_article": "屡被质疑的AI检测赛道，华人创业者把产品做到2400万美元ARR",
       "first_seen_source": "白鲸出海",
       "first_seen_link": "https://mp.weixin.qq.com/s/9g3WqcJf_zuSToU-jSTFVQ",
-      "mention_count": 11,
+      "mention_count": 12,
       "weeks_mentioned": [
         "2026-03-09 ~ 2026-03-15",
         "2026-03-03 ~ 2026-03-09",
@@ -1247,7 +1247,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "开源本地AI智能体，可一键接入群聊执行任务",
       "rtc_relevance": "高度相关：接入QQ/微信群聊需要IM消息通道，后续可能需要RTC语音交互能力",
-      "mention_count": 4,
+      "mention_count": 5,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15",
         "2026-03-01 ~ 2026-03-07"
@@ -1262,7 +1262,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "腾讯全场景AI智能体，对标OpenClaw，支持连接企微",
       "rtc_relevance": "高度相关：嵌入企业微信需要IM SDK支持，可能涉及语音指令等RTC能力",
-      "mention_count": 5,
+      "mention_count": 6,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15"
       ],
@@ -1276,7 +1276,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "AI语音输入工具，主打桌面端语音输入",
       "rtc_relevance": "中度相关：语音识别和处理技术与RTC语音引擎有技术交叉",
-      "mention_count": 5,
+      "mention_count": 6,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15"
       ],
@@ -1290,7 +1290,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "配合Hatch灯具的助眠App，提供入睡仪式感",
       "rtc_relevance": "低：主要是IoT+内容场景，无直接RTC需求，但未来可能引入AI语音助眠",
-      "mention_count": 5,
+      "mention_count": 6,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15"
       ],
@@ -1332,7 +1332,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "AI占星社交产品，主打Soulmate画像",
       "rtc_relevance": "中度相关：Soulmate匹配后的社交互动可能需要IM/RTC能力",
-      "mention_count": 5,
+      "mention_count": 6,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15"
       ],
@@ -1346,7 +1346,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "AI图文设计工具，生成可编辑设计源文件而非图片，0投放6个月获10万用户",
       "rtc_relevance": "如果扩展实时协作编辑功能（多人同时设计、实时预览同步），将需要RTC的实时数据同步能力",
-      "mention_count": 2,
+      "mention_count": 3,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15"
       ],
@@ -1360,7 +1360,7 @@
       "first_seen_week": "2026-03-08 ~ 2026-03-15",
       "description": "Google AI Labs实验项目，拍照+场景化AI语言学习",
       "rtc_relevance": "中等——如果集成实时对话练习功能（AI语伴），将需要实时语音识别和AI对话的RTC能力",
-      "mention_count": 2,
+      "mention_count": 3,
       "weeks_mentioned": [
         "2026-03-08 ~ 2026-03-15"
       ],
@@ -1374,7 +1374,7 @@
       "first_seen_week": "2026-03-01 ~ 2026-03-07",
       "description": "AI社交产品，用赛博分身替用户做预社交（评论、连接、匹配），用户只负责确认和校准",
       "rtc_relevance": "高度相关：AI分身间通信需要IM消息通道，未来人-AI匹配后的实时对话需要语音/视频RTC能力",
-      "mention_count": 1,
+      "mention_count": 2,
       "weeks_mentioned": [
         "2026-03-01 ~ 2026-03-07"
       ],
@@ -1388,7 +1388,7 @@
       "first_seen_week": "2026-03-01 ~ 2026-03-07",
       "description": "陌生人即时匹配+随机视频聊天App，广告+会员+虚拟礼物变现",
       "rtc_relevance": "核心依赖RTC：1v1随机视频聊天是核心功能，需要低延迟视频通话SDK",
-      "mention_count": 1,
+      "mention_count": 2,
       "weeks_mentioned": [
         "2026-03-01 ~ 2026-03-07"
       ],
@@ -1402,7 +1402,7 @@
       "first_seen_week": "2026-03-01 ~ 2026-03-07",
       "description": "语聊房平台，十年运营，主打语音社交和直播互动",
       "rtc_relevance": "核心依赖RTC：语聊房、直播连麦、语音社交均需要实时音频SDK",
-      "mention_count": 1,
+      "mention_count": 2,
       "weeks_mentioned": [
         "2026-03-01 ~ 2026-03-07"
       ],
@@ -1416,7 +1416,7 @@
       "first_seen_week": "2026-03-01 ~ 2026-03-07",
       "description": "AI大模型公司，旗下Talkie是AI角色社交产品（海外版星野）",
       "rtc_relevance": "高度相关：Talkie的AI角色互动涉及文字IM、AI语音对话，可能需要实时语音流式处理",
-      "mention_count": 1,
+      "mention_count": 2,
       "weeks_mentioned": [
         "2026-03-01 ~ 2026-03-07"
       ],
@@ -1430,7 +1430,7 @@
       "first_seen_week": "2026-03-01 ~ 2026-03-07",
       "description": "AI原生社区，让用户创建和互动AI角色",
       "rtc_relevance": "高度相关：AI角色互动涉及文字IM、未来可能接入AI语音对话",
-      "mention_count": 1,
+      "mention_count": 2,
       "weeks_mentioned": [
         "2026-03-01 ~ 2026-03-07"
       ],
@@ -1444,7 +1444,7 @@
       "first_seen_week": "2026-03-01 ~ 2026-03-07",
       "description": "字节跳动VR平台Pico开放语聊公会入驻",
       "rtc_relevance": "核心依赖RTC：VR语聊房需要空间音频+低延迟语音SDK，技术门槛更高",
-      "mention_count": 1,
+      "mention_count": 2,
       "weeks_mentioned": [
         "2026-03-01 ~ 2026-03-07"
       ],
