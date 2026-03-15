@@ -1,5 +1,5 @@
 {
   "outputDirectory": "output",
-  "buildCommand": "",
-  "installCommand": ""
+  "buildCommand": "echo 'static site'",
+  "installCommand": "echo 'no install'"
 }
