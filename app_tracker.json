@@ -1,0 +1,1462 @@
+{
+  "apps": {
+    "TikTok": {
+      "name": "TikTok",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "半年后旧梗重启，在新兴市场月入百万？",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/e6MJvyzuIDQDGCJuKtoWtw",
+      "mention_count": 30,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海",
+        "扬帆出海",
+        "36氪出海"
+      ]
+    },
+    "Amora": {
+      "name": "Amora",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "半年后旧梗重启，在新兴市场月入百万？",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/e6MJvyzuIDQDGCJuKtoWtw",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [
+        "白鲸出海"
+      ],
+      "rtc_relevance": "中度相关：Soulmate匹配成功后的社交互动可能需要IM/语音聊天能力"
+    },
+    "Coverstar": {
+      "name": "Coverstar",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "a16z领投200万美元，一款产品瞄准北美Alpha世代社交市场",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/MM5koxxxP2MAY5MGbeqLlw",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [
+        "扬帆出海"
+      ],
+      "rtc_relevance": "低：砍掉了私信功能，但未来如果加入群组视频创作可能需要RTC能力"
+    },
+    "Shopee": {
+      "name": "Shopee",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "美团：必要时暂停中东地区服务；阿里巴巴AI品牌统一为千问；银河通用再融资25亿元丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/sBOhN7oe9HATLJewn2ewEw",
+      "mention_count": 7,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海",
+        "36氪出海"
+      ]
+    },
+    "Lazada": {
+      "name": "Lazada",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "美团：必要时暂停中东地区服务；阿里巴巴AI品牌统一为千问；银河通用再融资25亿元丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/sBOhN7oe9HATLJewn2ewEw",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "MemoMind": {
+      "name": "MemoMind",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "3月12日，AWE 2026将在上海开幕。\n\n如今，AWE 已是全球三大家电及消费电子展之一，囊括黑白家电、厨电、家用机器人、智能穿戴等广泛的领域。家电和消费电子，可以说是中国工业的缩影，它的出海史领...",
+      "first_seen_source": "36氪出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/XqwURYJOuzL13HIG6ltmBw",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "36氪出海"
+      ]
+    },
+    "Amazfit": {
+      "name": "Amazfit",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "3月12日，AWE 2026将在上海开幕。\n\n如今，AWE 已是全球三大家电及消费电子展之一，囊括黑白家电、厨电、家用机器人、智能穿戴等广泛的领域。家电和消费电子，可以说是中国工业的缩影，它的出海史领...",
+      "first_seen_source": "36氪出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/XqwURYJOuzL13HIG6ltmBw",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "36氪出海"
+      ]
+    },
+    "RingConn": {
+      "name": "RingConn",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-03-02",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "3月12日，AWE 2026将在上海开幕。\n\n如今，AWE 已是全球三大家电及消费电子展之一，囊括黑白家电、厨电、家用机器人、智能穿戴等广泛的领域。家电和消费电子，可以说是中国工业的缩影，它的出海史领...",
+      "first_seen_source": "36氪出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/XqwURYJOuzL13HIG6ltmBw",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "36氪出海"
+      ]
+    },
+    "Reface": {
+      "name": "Reface",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "MuseGate": {
+      "name": "MuseGate",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "SHEIN": {
+      "name": "SHEIN",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 8,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海",
+        "扬帆出海",
+        "36氪出海"
+      ]
+    },
+    "Gossip Harbor": {
+      "name": "Gossip Harbor",
+      "track": "游戏",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Color Block Jam": {
+      "name": "Color Block Jam",
+      "track": "游戏",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 7,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "BitePal": {
+      "name": "BitePal",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 4,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09",
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [
+        "白鲸出海"
+      ],
+      "rtc_relevance": "低：主要是工具型产品，养宠社区可能有IM需求"
+    },
+    "Cal AI": {
+      "name": "Cal AI",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 12,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09",
+        "2026-03-08 ~ 2026-03-15",
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [
+        "白鲸出海",
+        "36氪出海"
+      ],
+      "rtc_relevance": "低：健康追踪场景，但社区功能可能使用IM能力"
+    },
+    "MyFitnessPal": {
+      "name": "MyFitnessPal",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 4,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Yazio": {
+      "name": "Yazio",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品399期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/AVVJV-H0gQlMwI11OABgEA",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "ChatGPT": {
+      "name": "ChatGPT",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "一周要闻NO.189丨Unity被曝可能出售中国业务；贪玩1500万元收购上海阅龙35%股权；eBay裁员800人占全球6%；谷歌Nano Banana 2亮相",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/B_q_30yAmM9nYFcGWqJ2Yw",
+      "mention_count": 39,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海",
+        "36氪出海",
+        "白鲸出海"
+      ]
+    },
+    "DeepSeek": {
+      "name": "DeepSeek",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "36氪出海·行业｜Token出海，将中国电力卖给全世界",
+      "first_seen_source": "36氪出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/WaqgNWc0KTqnlNU4ewpWCA",
+      "mention_count": 20,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "36氪出海",
+        "白鲸出海",
+        "扬帆出海"
+      ]
+    },
+    "Kimi": {
+      "name": "Kimi",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "36氪出海·行业｜Token出海，将中国电力卖给全世界",
+      "first_seen_source": "36氪出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/WaqgNWc0KTqnlNU4ewpWCA",
+      "mention_count": 15,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "36氪出海",
+        "扬帆出海",
+        "白鲸出海"
+      ]
+    },
+    "MiniMax": {
+      "name": "MiniMax",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-01",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "36氪出海·行业｜Token出海，将中国电力卖给全世界",
+      "first_seen_source": "36氪出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/WaqgNWc0KTqnlNU4ewpWCA",
+      "mention_count": 18,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "36氪出海",
+        "扬帆出海",
+        "白鲸出海"
+      ]
+    },
+    "Upward": {
+      "name": "Upward",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-02-28",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "1套模板跑出4个爆款，4800万美金收入，宗教社交APP美国狂吸金",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/VSWkRsHiRFP2ylrTPTCPrg",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Temu": {
+      "name": "Temu",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-02-28",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "贪玩1500万元收购上海阅龙35%股权；OpenAI获得1100亿美元融资；面壁智能获新一轮数亿元融资丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/KBDsHyDDOyQ5dS2iwIb3nA",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "TikTok Shop": {
+      "name": "TikTok Shop",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-02-28",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "贪玩1500万元收购上海阅龙35%股权；OpenAI获得1100亿美元融资；面壁智能获新一轮数亿元融资丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/KBDsHyDDOyQ5dS2iwIb3nA",
+      "mention_count": 15,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "扬帆出海",
+        "36氪出海"
+      ]
+    },
+    "EVE": {
+      "name": "EVE",
+      "track": "游戏",
+      "first_seen_date": "2026-02-28",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "贪玩1500万元收购上海阅龙35%股权；OpenAI获得1100亿美元融资；面壁智能获新一轮数亿元融资丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/KBDsHyDDOyQ5dS2iwIb3nA",
+      "mention_count": 16,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海",
+        "白鲸出海",
+        "36氪出海"
+      ]
+    },
+    "DramaWave": {
+      "name": "DramaWave",
+      "track": "短剧 & 内容",
+      "first_seen_date": "2026-02-28",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "贪玩1500万元收购上海阅龙35%股权；OpenAI获得1100亿美元融资；面壁智能获新一轮数亿元融资丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/KBDsHyDDOyQ5dS2iwIb3nA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Pixel Flow": {
+      "name": "Pixel Flow",
+      "track": "游戏",
+      "first_seen_date": "2026-02-27",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "腾讯也出手？休闲游戏厂商正成为香饽饽",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/K3KZQgVUtZuwBBLH_HlLvw",
+      "mention_count": 12,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "CrushOn": {
+      "name": "CrushOn",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-27",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "单月用户访问量超2000万，持续增长数月，这两款AI陪伴应用是怎么靠NSFW“飞升”的？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/ZTbhB6t4W909T1qAXEtAug",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Candy.AI": {
+      "name": "Candy.AI",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-27",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "单月用户访问量超2000万，持续增长数月，这两款AI陪伴应用是怎么靠NSFW“飞升”的？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/ZTbhB6t4W909T1qAXEtAug",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "PolyBuzz": {
+      "name": "PolyBuzz",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-27",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "单月用户访问量超2000万，持续增长数月，这两款AI陪伴应用是怎么靠NSFW“飞升”的？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/ZTbhB6t4W909T1qAXEtAug",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Character.ai": {
+      "name": "Character.ai",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-27",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "单月用户访问量超2000万，持续增长数月，这两款AI陪伴应用是怎么靠NSFW“飞升”的？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/ZTbhB6t4W909T1qAXEtAug",
+      "mention_count": 10,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "扬帆出海",
+        "白鲸出海"
+      ]
+    },
+    "Replika": {
+      "name": "Replika",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-27",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "单月用户访问量超2000万，持续增长数月，这两款AI陪伴应用是怎么靠NSFW“飞升”的？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/ZTbhB6t4W909T1qAXEtAug",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Color Blaze Shooter": {
+      "name": "Color Blaze Shooter",
+      "track": "游戏",
+      "first_seen_date": "2026-02-26",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "收入狂飙2900%、次月留存17%，这三种“小玩法”正在重写益智爆款规则",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/t63VIDDtshbVxpRMfp8bCQ",
+      "mention_count": 7,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Sand Loop": {
+      "name": "Sand Loop",
+      "track": "游戏",
+      "first_seen_date": "2026-02-26",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "收入狂飙2900%、次月留存17%，这三种“小玩法”正在重写益智爆款规则",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/t63VIDDtshbVxpRMfp8bCQ",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Royal Match": {
+      "name": "Royal Match",
+      "track": "游戏",
+      "first_seen_date": "2026-02-26",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "收入狂飙2900%、次月留存17%，这三种“小玩法”正在重写益智爆款规则",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/t63VIDDtshbVxpRMfp8bCQ",
+      "mention_count": 6,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "FlashGet Kids": {
+      "name": "FlashGet Kids",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-02-25",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "一款应用版“小天才”，成为了大批印度家长的救星",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/1dWifAVea6zVjXcX6lQDwQ",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "FlashGet": {
+      "name": "FlashGet",
+      "track": "健康 & 教育",
+      "first_seen_date": "2026-02-25",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "一款应用版“小天才”，成为了大批印度家长的救星",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/1dWifAVea6zVjXcX6lQDwQ",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Mobile Legends": {
+      "name": "Mobile Legends",
+      "track": "游戏",
+      "first_seen_date": "2026-02-25",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "414亿！沙特资本接盘沐瞳，字节火速套现，它们到底在急什么？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/9zB6syVH6573p5mqIrBltg",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "SoulChill": {
+      "name": "SoulChill",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-25",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "突发！苹果突施冷箭？百余款出海社交类 App一夜大面积下架！",
+      "first_seen_source": "语音葫芦",
+      "first_seen_link": "https://mp.weixin.qq.com/s/IR0xjIJ3TRU06izgNs9lwg",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "语音葫芦"
+      ]
+    },
+    "OyeTalk": {
+      "name": "OyeTalk",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-02-25",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "突发！苹果突施冷箭？百余款出海社交类 App一夜大面积下架！",
+      "first_seen_source": "语音葫芦",
+      "first_seen_link": "https://mp.weixin.qq.com/s/IR0xjIJ3TRU06izgNs9lwg",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "语音葫芦"
+      ]
+    },
+    "Whiteout Survival": {
+      "name": "Whiteout Survival",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "灵犀互娱新休闲SLG开测，“丧尸题材+黑洞玩法”能否比得过数值门打桶？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/W8seXipwyHs4aHNmCOnE-w",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海",
+        "白鲸出海"
+      ]
+    },
+    "Last War": {
+      "name": "Last War",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "灵犀互娱新休闲SLG开测，“丧尸题材+黑洞玩法”能否比得过数值门打桶？",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/W8seXipwyHs4aHNmCOnE-w",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海",
+        "白鲸出海"
+      ]
+    },
+    "Panthia": {
+      "name": "Panthia",
+      "track": "AI 社交 & 陪伴",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Tasty Travels": {
+      "name": "Tasty Travels",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Travel Town": {
+      "name": "Travel Town",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Happy Merge Home": {
+      "name": "Happy Merge Home",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Merge Prison": {
+      "name": "Merge Prison",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Merge Dragons": {
+      "name": "Merge Dragons",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Seaside Escape": {
+      "name": "Seaside Escape",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Mystery Town": {
+      "name": "Mystery Town",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Flambe": {
+      "name": "Flambe",
+      "track": "游戏",
+      "first_seen_date": "2026-02-24",
+      "first_seen_week": "2026-02-24 ~ 2026-03-02",
+      "first_seen_article": "合成年度榜单：9款出海产品流水过亿",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/rCnQR3CdRczMpUQVOu9HnA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-02-24 ~ 2026-03-02"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Typeless": {
+      "name": "Typeless",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-12",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "AI语音输入法，人类进入“不打字”时代",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/gRah2s_FxAokdWZWejRdAA",
+      "mention_count": 10,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ],
+      "rtc_relevance": "中度相关：底层语音处理技术与RTC引擎的语音编解码、降噪能力高度重合"
+    },
+    "BIGO LIVE": {
+      "name": "BIGO LIVE",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-12",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "营收回归增长，广告技术业务打开中长期想象空间｜欢聚财报解读",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/NzK3uc9T1P8kJEhvGd426w",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "BIGO": {
+      "name": "BIGO",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-12",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "营收回归增长，广告技术业务打开中长期想象空间｜欢聚财报解读",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/NzK3uc9T1P8kJEhvGd426w",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Seede AI": {
+      "name": "Seede AI",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-12",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "离开 Founder Park，他决定用「内容逻辑」重新定义设计",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/SrmrDzweQwOQPdK-s1vbgw",
+      "mention_count": 8,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [
+        "扬帆出海"
+      ],
+      "rtc_relevance": "低：主要是图文生产力工具，暂无实时互动需求"
+    },
+    "AliExpress": {
+      "name": "AliExpress",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-03-12",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "谷歌完成320亿美元收购Wiz；TikTok Shop计划进军韩国市场；爱诗科技完成3亿美元C轮融资丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/aKHpi7J-u1kiRjjjqaCCjw",
+      "mention_count": 4,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "Match Villains": {
+      "name": "Match Villains",
+      "track": "游戏",
+      "first_seen_date": "2026-03-11",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "势头不减，土耳其融资热潮持续近两年",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/7D0D_TOfsoIFcxss4G4CFg",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Twisted Tangle": {
+      "name": "Twisted Tangle",
+      "track": "游戏",
+      "first_seen_date": "2026-03-11",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "势头不减，土耳其融资热潮持续近两年",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/7D0D_TOfsoIFcxss4G4CFg",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Find The Cat": {
+      "name": "Find The Cat",
+      "track": "游戏",
+      "first_seen_date": "2026-03-11",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "势头不减，土耳其融资热潮持续近两年",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/7D0D_TOfsoIFcxss4G4CFg",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Car Match": {
+      "name": "Car Match",
+      "track": "游戏",
+      "first_seen_date": "2026-03-11",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "势头不减，土耳其融资热潮持续近两年",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/7D0D_TOfsoIFcxss4G4CFg",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Free Fire": {
+      "name": "Free Fire",
+      "track": "游戏",
+      "first_seen_date": "2026-03-11",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "乐信圣文的麻将消除冲进Top 4，堆叠消除新品跻身增长榜Top 12 | 2月全球手游下载榜",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/hEykDj632ZHX6f1JLdRZSQ",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Roblox": {
+      "name": "Roblox",
+      "track": "游戏",
+      "first_seen_date": "2026-03-11",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "乐信圣文的麻将消除冲进Top 4，堆叠消除新品跻身增长榜Top 12 | 2月全球手游下载榜",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/hEykDj632ZHX6f1JLdRZSQ",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Last Asylum": {
+      "name": "Last Asylum",
+      "track": "游戏",
+      "first_seen_date": "2026-03-10",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "“种花送花”游戏成出海新宠；北京厂商推新合成产品；贪玩、紫龙、易幻携新游冲榜丨2月榜单解读",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/J71TDDjb8SXV8arDG7cvbw",
+      "mention_count": 8,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09",
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [
+        "扬帆出海",
+        "白鲸出海"
+      ],
+      "rtc_relevance": "低：SLG游戏可能有联盟语音/文字聊天需求"
+    },
+    "CapCut": {
+      "name": "CapCut",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-10",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "a16z又发榜了，这一次，字节成最大赢家？",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/lbtgTW0NHsxve4I4IIp_7Q",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Yalla": {
+      "name": "Yalla",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-10",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "海外的泛娱乐市场，付费用户越来越难找了 | Yalla财报解读",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/vpFRd6M-lxD8aoxuvfNWyg",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "Turbo Match": {
+      "name": "Turbo Match",
+      "track": "游戏",
+      "first_seen_date": "2026-03-10",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "海外的泛娱乐市场，付费用户越来越难找了 | Yalla财报解读",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/vpFRd6M-lxD8aoxuvfNWyg",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "GPTZero": {
+      "name": "GPTZero",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-09",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "屡被质疑的AI检测赛道，华人创业者把产品做到2400万美元ARR",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/9g3WqcJf_zuSToU-jSTFVQ",
+      "mention_count": 11,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09",
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [
+        "白鲸出海"
+      ],
+      "rtc_relevance": "低：目前主要检测文本，但未来可能扩展到实时语音/视频内容的AI检测"
+    },
+    "Azar": {
+      "name": "Azar",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-09",
+      "first_seen_week": "2026-03-09 ~ 2026-03-15",
+      "first_seen_article": "「Pixel Flow!」像素级仿品被起诉后下架，混休也不能随意“换皮”",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/G0dPMDBaf2jj0btif3VVcA",
+      "mention_count": 6,
+      "weeks_mentioned": [
+        "2026-03-09 ~ 2026-03-15",
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "SILUO": {
+      "name": "SILUO",
+      "track": "电商/跨境",
+      "first_seen_date": "2026-03-08",
+      "first_seen_week": "2026-03-03 ~ 2026-03-09",
+      "first_seen_article": "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品400期",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/2M0nnLe-DLQ6DhDLVoVdaw",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "YouTube": {
+      "name": "YouTube",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-06",
+      "first_seen_week": "2026-03-03 ~ 2026-03-09",
+      "first_seen_article": "月流水有望过千万，三七开年就找到了新爆款？",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/y1bdLULbSQph5jXeGdC4jA",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海"
+      ]
+    },
+    "My Perfect Hotel": {
+      "name": "My Perfect Hotel",
+      "track": "游戏",
+      "first_seen_date": "2026-03-06",
+      "first_seen_week": "2026-03-03 ~ 2026-03-09",
+      "first_seen_article": "月流水有望过千万，三七开年就找到了新爆款？",
+      "first_seen_source": "白鲸出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/y1bdLULbSQph5jXeGdC4jA",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "白鲸出海",
+        "扬帆出海"
+      ]
+    },
+    "PayPal": {
+      "name": "PayPal",
+      "track": "金融/支付",
+      "first_seen_date": "2026-03-05",
+      "first_seen_week": "2026-03-03 ~ 2026-03-09",
+      "first_seen_article": "谷歌将全球下调应用开发者费用；亚马逊在机器人部门裁员约100人；捏Ta完成超千万美金PreA+轮融资丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/oAm5OR2Svjk-On1XuDNjkQ",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "NewsBreak": {
+      "name": "NewsBreak",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-03",
+      "first_seen_week": "2026-03-03 ~ 2026-03-09",
+      "first_seen_article": "Unity海外资源商店禁止国区访问；魔法原子创始人退出旗下多家公司；Rokid AI眼镜海外版接入四大AI模型丨扬帆晚报",
+      "first_seen_source": "扬帆出海",
+      "first_seen_link": "https://mp.weixin.qq.com/s/5l8MhkC8JvJZxG_aefe2Vw",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-03 ~ 2026-03-09"
+      ],
+      "sources": [
+        "扬帆出海"
+      ]
+    },
+    "OpenClaw": {
+      "name": "OpenClaw",
+      "track": "AI工具",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "开源本地AI智能体，可一键接入群聊执行任务",
+      "rtc_relevance": "高度相关：接入QQ/微信群聊需要IM消息通道，后续可能需要RTC语音交互能力",
+      "mention_count": 4,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15",
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "腾讯大厦门口几小时内几百只被安装，QQ开放个人用户免费接入，1个QQ号最多5个机器人"
+    },
+    "WorkBuddy": {
+      "name": "WorkBuddy",
+      "track": "AI工具",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "腾讯全场景AI智能体，对标OpenClaw，支持连接企微",
+      "rtc_relevance": "高度相关：嵌入企业微信需要IM SDK支持，可能涉及语音指令等RTC能力",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "3月9日正式上线，从下载到连接企微最快1分钟"
+    },
+    "Wispr Flow": {
+      "name": "Wispr Flow",
+      "track": "AI工具",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "AI语音输入工具，主打桌面端语音输入",
+      "rtc_relevance": "中度相关：语音识别和处理技术与RTC语音引擎有技术交叉",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "融资8100万美元，估值7亿美元"
+    },
+    "Hatch Sleep": {
+      "name": "Hatch Sleep",
+      "track": "健康",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "配合Hatch灯具的助眠App，提供入睡仪式感",
+      "rtc_relevance": "低：主要是IoT+内容场景，无直接RTC需求，但未来可能引入AI语音助眠",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "月流水长期维持300万美元左右"
+    },
+    "BIGO Live / Likee": {
+      "name": "BIGO Live / Likee",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "欢聚旗下全球直播和短视频平台",
+      "rtc_relevance": "高度相关：核心功能依赖RTC音视频能力（直播、连麦、PK）",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "Q4直播收入3.94亿美元，BIGO Ads收入1.281亿美元同比增长61.5%"
+    },
+    "Yalla / Yalla Ludo": {
+      "name": "Yalla / Yalla Ludo",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "中东语聊房和社交游戏平台",
+      "rtc_relevance": "高度相关：语聊房核心依赖RTC语音能力，Ludo需要IM实时消息",
+      "mention_count": 3,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "全年营收3.42亿美元，净利润1.48亿美元，市值11.20亿美元"
+    },
+    "Starla": {
+      "name": "Starla",
+      "track": "社交泛娱乐",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "AI占星社交产品，主打Soulmate画像",
+      "rtc_relevance": "中度相关：Soulmate匹配后的社交互动可能需要IM/RTC能力",
+      "mention_count": 5,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "美国市场峰值月入近200万美元，在新兴市场月入20万美元"
+    },
+    "Seede AI / Veeso AI": {
+      "name": "Seede AI / Veeso AI",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "AI图文设计工具，生成可编辑设计源文件而非图片，0投放6个月获10万用户",
+      "rtc_relevance": "如果扩展实时协作编辑功能（多人同时设计、实时预览同步），将需要RTC的实时数据同步能力",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "0投放6个月积累10万用户"
+    },
+    "Little Language Lessons": {
+      "name": "Little Language Lessons",
+      "track": "AI 工具 & 效率",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-08 ~ 2026-03-15",
+      "description": "Google AI Labs实验项目，拍照+场景化AI语言学习",
+      "rtc_relevance": "中等——如果集成实时对话练习功能（AI语伴），将需要实时语音识别和AI对话的RTC能力",
+      "mention_count": 2,
+      "weeks_mentioned": [
+        "2026-03-08 ~ 2026-03-15"
+      ],
+      "sources": [],
+      "data_points": "Google AI Labs测试项目，支持16种语言，课程生成仅需10秒"
+    },
+    "Elys": {
+      "name": "Elys",
+      "track": "AI + 实时互动",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-01 ~ 2026-03-07",
+      "description": "AI社交产品，用赛博分身替用户做预社交（评论、连接、匹配），用户只负责确认和校准",
+      "rtc_relevance": "高度相关：AI分身间通信需要IM消息通道，未来人-AI匹配后的实时对话需要语音/视频RTC能力",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "邀请码闲鱼炒到100元，单用户日使用10小时，产品刷屏级传播"
+    },
+    "Joi": {
+      "name": "Joi",
+      "track": "互动娱乐",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-01 ~ 2026-03-07",
+      "description": "陌生人即时匹配+随机视频聊天App，广告+会员+虚拟礼物变现",
+      "rtc_relevance": "核心依赖RTC：1v1随机视频聊天是核心功能，需要低延迟视频通话SDK",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "近30天全球下载超6.36万，收入259.21万美元，被苹果下架"
+    },
+    "氧气语音": {
+      "name": "氧气语音",
+      "track": "互动娱乐",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-01 ~ 2026-03-07",
+      "description": "语聊房平台，十年运营，主打语音社交和直播互动",
+      "rtc_relevance": "核心依赖RTC：语聊房、直播连麦、语音社交均需要实时音频SDK",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "签约张韶涵代言费数千万，明星季总投入超亿元，十年稳定运营"
+    },
+    "MiniMax/Talkie": {
+      "name": "MiniMax/Talkie",
+      "track": "AI + 实时互动",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-01 ~ 2026-03-07",
+      "description": "AI大模型公司，旗下Talkie是AI角色社交产品（海外版星野）",
+      "rtc_relevance": "高度相关：Talkie的AI角色互动涉及文字IM、AI语音对话，可能需要实时语音流式处理",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "年收入7904万美元同比增158.9%，ARR已超1.5亿美元，港股上市"
+    },
+    "捏Ta": {
+      "name": "捏Ta",
+      "track": "AI + 实时互动",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-01 ~ 2026-03-07",
+      "description": "AI原生社区，让用户创建和互动AI角色",
+      "rtc_relevance": "高度相关：AI角色互动涉及文字IM、未来可能接入AI语音对话",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "完成超千万美元PreA+轮融资，九坤创投领投，BV百度风投跟投"
+    },
+    "Pico VR语聊": {
+      "name": "Pico VR语聊",
+      "track": "互动娱乐",
+      "first_seen_date": "2026-03-15",
+      "first_seen_week": "2026-03-01 ~ 2026-03-07",
+      "description": "字节跳动VR平台Pico开放语聊公会入驻",
+      "rtc_relevance": "核心依赖RTC：VR语聊房需要空间音频+低延迟语音SDK，技术门槛更高",
+      "mention_count": 1,
+      "weeks_mentioned": [
+        "2026-03-01 ~ 2026-03-07"
+      ],
+      "sources": [],
+      "data_points": "首月分成91.5%，稳定期90%，加5%搬家费"
+    }
+  },
+  "weeks": [
+    "2026-02-24 ~ 2026-03-02",
+    "2026-03-09 ~ 2026-03-15",
+    "2026-03-03 ~ 2026-03-09",
+    "2026-03-08 ~ 2026-03-15",
+    "2026-03-01 ~ 2026-03-07"
+  ]
+}

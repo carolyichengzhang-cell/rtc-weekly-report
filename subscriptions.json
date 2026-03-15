@@ -1,0 +1,32 @@
+{
+  "description": "出海领域公众号订阅列表 - 追踪出海趋势、热门App、市场动态",
+  "updated": "2026-03-15",
+  "source": "WeWe RSS API (http://localhost:4000/feeds)",
+  "feed_count": 4,
+  "feeds": [
+    {
+      "id": "MP_WXS_3299396180",
+      "name": "36氪出海",
+      "status": "active",
+      "created_at": ""
+    },
+    {
+      "id": "MP_WXS_3875073744",
+      "name": "语音葫芦",
+      "status": "active",
+      "created_at": ""
+    },
+    {
+      "id": "MP_WXS_3075486737",
+      "name": "白鲸出海",
+      "status": "active",
+      "created_at": ""
+    },
+    {
+      "id": "MP_WXS_2397267072",
+      "name": "扬帆出海",
+      "status": "active",
+      "created_at": ""
+    }
+  ]
+}

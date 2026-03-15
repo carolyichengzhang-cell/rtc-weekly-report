@@ -1,0 +1,587 @@
+{
+  "meta": {
+    "period": "2026-03-01 ~ 2026-03-07",
+    "article_count": 42,
+    "analyzed_at": "2026-03-15T22:45:00Z"
+  },
+  "tldr": [
+    "【互动娱乐】苹果一夜下架百余款出海社交App（含Joi、Coco、Monkey Run等随机视频聊天产品），陌生人实时视频社交赛道面临合规洗牌，对具备内容审核能力的RTC SDK是利好",
+    "【AI + 实时互动】AI社交产品Elys内测刷屏，邀请码闲鱼炒到100元，\"赛博分身\"做预社交的范式创新，预示AI+社交将大量需要IM和实时互动基建",
+    "【互动娱乐】氧气语音官宣张韶涵代言，\"氧气明星季\"总投入超亿元，语聊房赛道头部玩家加码品牌投入，行业从野蛮生长进入品牌化竞争",
+    "【AI 工具 & 效率】OpenClaw在中国发酵速度远超硅谷，字节/阿里/腾讯集体上线Agent云服务，AI Agent生态爆发将催生大量实时通信需求（群聊接入/语音交互）",
+    "【社交泛娱乐】中东局势升级导致美团Keeta暂停部分中东服务，霍尔木兹海峡停滞、多国领空关闭，出海企业需重新评估中东市场RTC基础设施部署",
+    "【电商/跨境】谷歌Play全球下调开发者服务费至20%（新用户安装），开放第三方支付和第三方应用商店，降低App分发成本利好出海社交/泛娱乐开发者",
+    "【AI 工具 & 效率】MiniMax上市首份财报：年收入7904万美元同比增158.9%，海外收入占73%，Talkie AI社交产品是核心增长引擎，验证AI社交出海商业模式",
+    "【社交泛娱乐】Starla的\"Soulmate画像\"梗从美国迁移到东南亚，Amora在印尼月入20万美元，证明社交玩法有跨市场复制潜力"
+  ],
+  "rtc_insights": [
+    {
+      "title": "苹果大规模下架社交App加速行业合规洗牌，具备审核能力的RTC SDK将成为刚需",
+      "tags": ["互动娱乐", "RTC 音视频", "社交泛娱乐"],
+      "body": "2月24日，苹果App Store一夜下架百余款出海社交类应用，仅美国地区就有81个社交类App突发下架。被波及的产品包括Joi（近30天全球下载超6.36万，收入259.21万美元，84%来自美国）、Coco、Monkey Run等，共性是主打陌生人即时视频聊天/语音连线，采用虚拟货币变现机制。核心触发因素包括：实时UGC内容难以提前审核、未成年人保护不到位、隐私权限过高、诱导消费。这次下架是苹果持续收紧审核政策的缩影——从2024年开始，苹果对\"1-on-1 video chat\"类应用的审核标准已多次升级。底层逻辑是全球监管趋势：欧盟DSA、美国KOSA法案、各国对未成年人在线保护的立法都在加码。对RTC意味着什么？第一，单纯提供音视频通道的SDK将不再满足市场需求，开发者急需\"RTC+内容安全\"一体化方案，包括实时AI内容审核（视频流中的裸露检测、暴力检测）、年龄验证集成、录制合规存档。第二，被下架的产品不会消失，它们会重新上架或转移到安卓生态，但需要更完善的合规基建。第三，中小开发者自建审核系统成本过高，会倾向选择提供合规能力的商业SDK。预判：未来6-12个月，\"RTC+Trust & Safety\"将成为出海社交SDK选型的核心考量维度。",
+      "judgment": "RTC SDK的竞争已从\"音视频质量\"升维到\"合规能力\"，腾讯应将内容审核能力作为TRTC出海的核心差异化卖点",
+      "opportunity": "立即推出TRTC出海合规套件：集成实时视频AI审核、年龄验证、合规录制回放，针对被下架的社交App开发者做精准BD",
+      "risk": "声网Agora已有Extensions Marketplace提供第三方审核集成，LiveKit等开源方案也在快速补齐内容安全生态",
+      "related_articles": ["百余款社交应用突发下架，苹果新规\"亮剑\"，匿名社交该何去何从？"]
+    },
+    {
+      "title": "AI Agent（OpenClaw）生态爆发正在催生新一代实时通信基础设施需求",
+      "tags": ["AI + 实时互动", "IM 即时通讯"],
+      "body": "OpenClaw作为开源AI Agent工具在中国的发酵速度远超硅谷想象。The Information报道显示，字节、阿里、腾讯三大云平台已集体上线OpenClaw云服务，而AWS/Azure/Google Cloud尚未跟进。在应用层面，Agent正在快速接入群聊场景——QQ开放个人用户免费接入AI机器人（1个QQ号最多5个），腾讯大厦门口几小时内就有几百只OpenClaw被安装。围绕Agent生态，三个维度的RTC/IM需求正在涌现：1) Agent接入群聊需要IM消息通道，包括文本、图片、文件等多模态消息能力；2) Agent语音交互需要低延迟语音识别+TTS的实时流式处理；3) 多Agent协作需要实时数据同步通道。从技术指标看，Agent对延迟的要求甚至高于人类——人类可以容忍200ms延迟，但Agent间协作可能需要50ms以内的响应。这意味着现有RTC基础设施需要为AI-to-AI通信做适配。预判：2026年下半年，\"Agent Communication Protocol\"将成为RTC领域的新标准战场，谁先定义Agent间的实时通信协议，谁就能在AI Agent时代占据基础设施层的话语权。",
+      "judgment": "AI Agent不是RTC的竞争者，而是RTC最大的增量市场——每个Agent都需要实时通信能力",
+      "opportunity": "1) 基于腾讯IM SDK开发Agent Communication Kit，支持Agent快速接入QQ/微信/企微群聊；2) 推出Agent Voice SDK，提供流式ASR+TTS+对话管理一体化方案",
+      "risk": "字节豆包的Agent生态正快速扩张，可能自建通信层；开源社区Pion+WebRTC方案对Agent通信场景有天然适配优势",
+      "related_articles": ["OpenClaw在中国AI圈的发酵和扩散速度，远超硅谷想象", "OpenClaw\"养虾\"，WiFi\"穿墙\"透视，两大AI开源项目引爆GitHub"]
+    },
+    {
+      "title": "AI社交新范式（Elys赛博分身）验证了\"AI做社交做功\"的产品逻辑，将驱动IM基础设施升级",
+      "tags": ["AI + 实时互动", "IM 即时通讯", "社交泛娱乐"],
+      "body": "AI社交产品Elys内测引发刷屏级关注，邀请码在闲鱼一度被标到100元。其核心创新是\"赛博分身做预社交\"——AI分身替用户完成评论、点赞、连接等社交做功，用户只负责确认和校准。一个用户10小时使用时间，发5条帖子收获170条反馈，但只涨3个粉丝，因为大部分互动来自其他用户的AI分身。这个产品逻辑对IM/RTC的启示深远：1) 消息量爆发——每个真人用户背后有一个或多个AI分身在持续产生消息，IM系统需要处理的消息量可能增加10-100倍；2) 消息类型变化——AI分身的\"内心OS\"、记忆更新、社交汇报等需要新的消息类型和推送策略；3) 从\"人-人\"通信到\"人-AI-人\"通信——IM SDK需要支持三方通信模型。从商业化角度，MiniMax的Talkie已验证AI社交的商业模式（MiniMax年收入7904万美元，海外占73%），而Elys进一步证明AI分身可以承担社交做功。捏Ta也完成超千万美元PreA+轮融资（九坤创投领投），AI原生社区赛道持续获得资本加注。预判：2026年将是\"AI分身社交\"产品的爆发年，底层IM基础设施需要为10倍消息量、新消息类型、AI-Human混合通信做好准备。",
+      "judgment": "AI社交正在从\"AI增强社交\"进化为\"AI代理社交\"，IM SDK需要从支持\"人与人通信\"升级为支持\"人、AI、Agent三方通信\"",
+      "opportunity": "开发TRTC/IM的\"AI社交增强套件\"：支持AI分身身份管理、AI消息类型、高并发AI消息投递、AI-Human通信审计",
+      "risk": "MiniMax自研通信能力持续增强，Talkie在海外已形成数据闭环；Elys背后技术团队实力不明但产品力极强",
+      "related_articles": ["36氪出海·AI｜赛博分身出击，AI社交Elys一夜刷屏", "MiniMax交卷，闫俊杰瞄准三大战场"]
+    },
+    {
+      "title": "语聊房赛道进入品牌化竞争新阶段，氧气语音亿元级投入标志头部玩家加速整合",
+      "tags": ["互动娱乐", "RTC 音视频"],
+      "body": "氧气语音官宣张韶涵为代言人，签约费用达数千万，\"氧气明星季\"总投入将超亿元。在行业普遍收缩、降本增效的大背景下，这一动作释放了三个强信号：1) 语聊房赛道远未到天花板，头部平台仍在加码——氧气语音能拿出千万级品牌投放，说明其营收和利润支撑得起这种投入水平；2) 行业正在经历\"优胜劣汰\"洗牌，不少平台因合规问题或资金链断裂关停，幸存的头部平台将获得更大市场份额；3) 品牌化是语聊房从\"灰色地带\"走向\"主流娱乐\"的必经之路，明星代言提升用户信任度和获客效率。此前氧气语音已合作王心凌、Uzi、范丞丞、孟子义等多位明星，资源储备领先同行。同时，Pico（字节跳动VR平台）也在吸引语聊公会入驻，首月分成91.5%、稳定期90%，加上5%搬家费，显示VR语聊也在争夺公会资源。对RTC的启示：语聊房头部平台的SDK选型具有极强的粘性和示范效应，一旦绑定很难切换。氧气语音的亿元级投入意味着其RTC用量将大幅增长。",
+      "judgment": "语聊房赛道正在从\"百花齐放\"转向\"寡头整合\"，绑定头部平台的RTC SDK将获得持续增长红利",
+      "opportunity": "主动接触氧气语音技术团队，了解其当前RTC方案和痛点；同时关注Pico VR语聊场景的RTC需求——VR环境对空间音频有更高要求",
+      "risk": "声网在语聊房领域深耕多年，氧气语音等头部平台可能已使用Agora方案；Pico有字节自研的RTC能力支撑",
+      "related_articles": ["氧气语音官宣张韶涵，将影响语音圈未来三年格局？！", "夯！首月91.5%！稳定期90%！Pico限时给你5%搬家费！"]
+    }
+  ],
+  "trend_signals": [
+    {
+      "signal": "苹果对陌生人视频社交App审核持续收紧，出海社交开发者面临合规升级压力",
+      "direction": "rising",
+      "strength": "strong",
+      "evidence": "2月24日仅美国地区就有81个社交类App突发下架，Joi近30天收入259.21万美元被波及，产品共性为随机视频聊天+虚拟货币变现"
+    },
+    {
+      "signal": "AI Agent（OpenClaw为代表）生态在中国极速爆发，催生Agent-to-Human通信新需求",
+      "direction": "emerging",
+      "strength": "strong",
+      "evidence": "字节/阿里/腾讯集体上线OpenClaw云服务，QQ开放个人用户免费接入AI机器人（1个QQ号最多5个），腾讯大厦门口几小时内几百只被安装"
+    },
+    {
+      "signal": "AI社交产品进入\"分身代理社交\"新范式，消息量和交互复杂度数量级跃升",
+      "direction": "emerging",
+      "strength": "moderate",
+      "evidence": "Elys邀请码闲鱼炒到100元，单用户10小时使用时间，发5条帖子获170条反馈；捏Ta完成超千万美元PreA+融资"
+    },
+    {
+      "signal": "中东地缘冲突升级迫使出海企业重新评估区域部署策略",
+      "direction": "rising",
+      "strength": "strong",
+      "evidence": "美伊冲突导致霍尔木兹海峡停滞，多国领空关闭，美团Keeta必要时暂停中东部分服务，迪拜一度关闭部分领空航线"
+    },
+    {
+      "signal": "语聊房赛道从野蛮生长进入品牌化整合期，头部平台加大投入",
+      "direction": "rising",
+      "strength": "moderate",
+      "evidence": "氧气语音签约张韶涵代言费数千万，\"氧气明星季\"总投入超亿元；Pico以91.5%首月分成吸引公会"
+    },
+    {
+      "signal": "谷歌大幅降低Play Store开发者费率，降低出海App分发成本",
+      "direction": "rising",
+      "strength": "moderate",
+      "evidence": "谷歌将应用商店内购佣金降至20%，使用谷歌支付额外加收5%，新用户安装服务费降至20%，同时开放第三方支付和第三方应用商店"
+    },
+    {
+      "signal": "中国AI大模型Token消耗全球占比超60%，AI基础设施出海进入加速期",
+      "direction": "rising",
+      "strength": "strong",
+      "evidence": "OpenRouter数据：平台前十模型Token消耗8.7万亿，中国模型占5.3万亿（61%），MiniMax M2.5以2.45万亿Token登顶"
+    },
+    {
+      "signal": "健康追踪赛道AI化加速，Cal AI被MyFitnessPal收购验证AI+垂直场景的并购价值",
+      "direction": "rising",
+      "strength": "moderate",
+      "evidence": "Cal AI年营收突破5000万美元，下载量1500万，被MyFitnessPal收购；BitePal月流水300万美元"
+    }
+  ],
+  "app_discoveries": [
+    {
+      "name": "Elys",
+      "track": "AI + 实时互动",
+      "description": "AI社交产品，用赛博分身替用户做预社交（评论、连接、匹配），用户只负责确认和校准",
+      "rtc_relevance": "高度相关：AI分身间通信需要IM消息通道，未来人-AI匹配后的实时对话需要语音/视频RTC能力",
+      "market": "中国（内测阶段），计划出海",
+      "data_points": "邀请码闲鱼炒到100元，单用户日使用10小时，产品刷屏级传播"
+    },
+    {
+      "name": "Joi",
+      "track": "互动娱乐",
+      "description": "陌生人即时匹配+随机视频聊天App，广告+会员+虚拟礼物变现",
+      "rtc_relevance": "核心依赖RTC：1v1随机视频聊天是核心功能，需要低延迟视频通话SDK",
+      "market": "美国（84%收入来源）",
+      "data_points": "近30天全球下载超6.36万，收入259.21万美元，被苹果下架"
+    },
+    {
+      "name": "氧气语音",
+      "track": "互动娱乐",
+      "description": "语聊房平台，十年运营，主打语音社交和直播互动",
+      "rtc_relevance": "核心依赖RTC：语聊房、直播连麦、语音社交均需要实时音频SDK",
+      "market": "中国",
+      "data_points": "签约张韶涵代言费数千万，明星季总投入超亿元，十年稳定运营"
+    },
+    {
+      "name": "OpenClaw",
+      "track": "AI + 实时互动",
+      "description": "开源AI Agent工具，让AI接管电脑操控鼠标、点击、填写表单，已接入QQ群聊",
+      "rtc_relevance": "高度相关：接入QQ/微信群聊需要IM消息通道，后续Agent语音交互需要RTC语音能力",
+      "market": "全球（中国增速远超硅谷）",
+      "data_points": "GitHub星标21万+，字节/阿里/腾讯三大云集体上线，QQ开放1个号最多5个机器人"
+    },
+    {
+      "name": "Amora",
+      "track": "社交泛娱乐",
+      "description": "AI占星社交产品，主打Soulmate灵魂伴侣画像匹配，Starla印尼本地化版",
+      "rtc_relevance": "中度相关：Soulmate匹配成功后的社交互动可能需要IM/语音聊天能力",
+      "market": "印尼/东南亚",
+      "data_points": "冲到印尼下载总榜39位，月入20万美元"
+    },
+    {
+      "name": "Coverstar",
+      "track": "社交泛娱乐",
+      "description": "面向Alpha世代（2010年后出生）的安全社交平台，砍掉私信和无限下拉，引导内容创作",
+      "rtc_relevance": "低：砍掉了私信功能，但未来如果加入群组视频创作可能需要RTC能力",
+      "market": "北美/欧洲",
+      "data_points": "a16z Speedrun领投200万美元，登上美国社交免费榜第12名"
+    },
+    {
+      "name": "MiniMax/Talkie",
+      "track": "AI + 实时互动",
+      "description": "AI大模型公司，旗下Talkie是AI角色社交产品（海外版星野）",
+      "rtc_relevance": "高度相关：Talkie的AI角色互动涉及文字IM、AI语音对话，可能需要实时语音流式处理",
+      "market": "全球（海外收入占73%）",
+      "data_points": "年收入7904万美元同比增158.9%，ARR已超1.5亿美元，港股上市"
+    },
+    {
+      "name": "Cal AI",
+      "track": "其他出海赛道",
+      "description": "AI卡路里追踪App，拍照算热量",
+      "rtc_relevance": "低：健康追踪场景，社区功能可能使用IM能力",
+      "market": "全球",
+      "data_points": "年营收5000万美元，下载量1500万，被MyFitnessPal收购，创始人仅19岁"
+    },
+    {
+      "name": "BitePal",
+      "track": "其他出海赛道",
+      "description": "Reface旗下AI卡路里追踪应用，\"养宠浣熊\"玩法切入健康赛道",
+      "rtc_relevance": "低：主要是工具型产品，养宠社区可能有IM需求",
+      "market": "全球",
+      "data_points": "月下载180万次，月流水300万美元"
+    },
+    {
+      "name": "Last Asylum",
+      "track": "游戏",
+      "description": "三七互娱哥特风放置街机SLG，中世纪\"鸟嘴面具医生\"题材",
+      "rtc_relevance": "低：SLG游戏可能有联盟语音/文字聊天需求",
+      "market": "全球（登上10+国家免费榜TOP1）",
+      "data_points": "总下载约109万，收入约75万美元，日流水5-7万美元，三七互娱旗下"
+    },
+    {
+      "name": "捏Ta",
+      "track": "AI + 实时互动",
+      "description": "AI原生社区，让用户创建和互动AI角色",
+      "rtc_relevance": "高度相关：AI角色互动涉及文字IM、未来可能接入AI语音对话",
+      "market": "中国/全球",
+      "data_points": "完成超千万美元PreA+轮融资，九坤创投领投，BV百度风投跟投"
+    },
+    {
+      "name": "Pico VR语聊",
+      "track": "互动娱乐",
+      "description": "字节跳动VR平台Pico开放语聊公会入驻",
+      "rtc_relevance": "核心依赖RTC：VR语聊房需要空间音频+低延迟语音SDK，技术门槛更高",
+      "market": "全球",
+      "data_points": "首月分成91.5%，稳定期90%，加5%搬家费"
+    }
+  ],
+  "business_opportunities": [
+    {
+      "title": "被下架社交App开发者急需\"RTC+内容安全\"一体化方案",
+      "description": "苹果一夜下架100+款出海社交App，这些开发者需要重新上架就必须升级合规能力。他们急需集成AI实时内容审核（裸露检测/暴力检测）、年龄验证、合规录制的RTC SDK。仅Joi一个App近30天收入就有259万美元，整个陌生人视频社交赛道年规模数十亿美元。",
+      "target_market": "全球（美国为主）",
+      "urgency": "high",
+      "action_items": [
+        "整理被下架的社交App清单（至少81个），获取其开发者联系方式",
+        "包装TRTC出海合规方案：AI实时视频审核+年龄验证+合规录制，出一版solution brief",
+        "在出海社交开发者社群（如语音葫芦、扬帆出海）发布合规解决方案案例"
+      ]
+    },
+    {
+      "title": "AI Agent通信基础设施——为Agent接入IM群聊提供SDK",
+      "description": "OpenClaw等AI Agent正在快速接入QQ/微信/企微群聊，QQ已开放个人用户免费接入（1号5机器人）。当前Agent接入群聊的通信方案多为hack式方案，缺乏官方SDK支持。如果腾讯IM推出Agent Communication Kit，可以抢占AI Agent通信基础设施层。",
+      "target_market": "全球",
+      "urgency": "high",
+      "action_items": [
+        "与腾讯云IM团队协同，评估推出Agent Communication SDK的可行性",
+        "调研当前OpenClaw等Agent接入QQ群聊的技术方案和痛点",
+        "联系OpenClaw核心开发者社区，了解他们对Agent通信SDK的需求"
+      ]
+    },
+    {
+      "title": "语聊房头部平台SDK换代窗口期——氧气语音等品牌升级客户",
+      "description": "氧气语音等语聊房头部平台正在从\"野蛮生长\"转向\"品牌化竞争\"，明星季投入超亿元。品牌升级意味着对音质、稳定性、体验有更高要求，是SDK换代的好时机。同时Pico VR语聊也是新的增量场景。",
+      "target_market": "中国/中东/东南亚",
+      "urgency": "medium",
+      "action_items": [
+        "主动联系氧气语音技术团队，了解当前RTC方案及升级需求",
+        "准备语聊房场景的TRTC方案对比（vs Agora），突出音质、3D音效、低延迟优势",
+        "调研Pico VR语聊的空间音频需求，评估TRTC空间音频方案的适配性"
+      ]
+    },
+    {
+      "title": "AI社交产品IM升级需求——Elys/Talkie/捏Ta等产品的通信基建机会",
+      "description": "AI社交产品正从\"AI增强社交\"进化为\"AI代理社交\"，Elys的AI分身、Talkie的AI角色、捏Ta的AI社区都需要升级的IM基础设施。需求包括：超高并发AI消息投递、新消息类型（AI内心OS/记忆更新/社交汇报）、人-AI-人三方通信模型。MiniMax年收入已达7904万美元，验证了商业模式。",
+      "target_market": "全球",
+      "urgency": "medium",
+      "action_items": [
+        "联系Elys产品团队，了解其IM架构和技术选型",
+        "联系MiniMax/Talkie技术团队，探讨Talkie海外IM能力的合作可能",
+        "开发面向AI社交场景的IM功能模块：AI身份标识、高频小消息优化、AI消息路由"
+      ]
+    }
+  ],
+  "article_classifications": [
+    {
+      "title": "36氪出海·行业｜中企出海2.0：步入体系化深耕，打造品牌矩阵",
+      "tracks": ["电商/跨境", "其他出海赛道"],
+      "markets": ["东南亚", "欧洲", "全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "中国家电/制造业出海进入品牌化、本土化生产新阶段，海尔/美的/海信在东南亚建厂"
+    },
+    {
+      "title": "战火中的中东语聊房：今年斋月的关键词，不是\"狂欢\"，是\"共情\"与\"避险\"",
+      "tracks": ["互动娱乐", "RTC 音视频"],
+      "markets": ["中东"],
+      "apps_mentioned": [],
+      "rtc_relevance": "high",
+      "summary": "中东局势影响语聊房斋月运营策略，产品需从\"狂欢\"转向\"共情避险\"，RTC场景需求变化"
+    },
+    {
+      "title": "一周要闻NO.190",
+      "tracks": ["游戏", "AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["GPT-5.4"],
+      "rtc_relevance": "low",
+      "summary": "谷歌下调开发者费用、20人团队被68亿收购、OpenAI发布GPT-5.4等一周要闻汇总"
+    },
+    {
+      "title": "36氪出海·市场｜2026年，中国外贸在\"惊涛骇浪\"中破局",
+      "tracks": ["电商/跨境", "其他出海赛道"],
+      "markets": ["中东", "全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "中东冲突影响全球贸易链，中国外贸45万亿元但面临地缘政治挑战"
+    },
+    {
+      "title": "36氪出海·洞察｜从家庭到创业，她在东南亚美妆赛道开启\"第二人生\"",
+      "tracks": ["电商/跨境"],
+      "markets": ["东南亚"],
+      "apps_mentioned": ["Shopee"],
+      "rtc_relevance": "none",
+      "summary": "华人女性在东南亚Shopee做假睫毛跨境电商创业案例"
+    },
+    {
+      "title": "夯！首月91.5%！稳定期90%！Pico限时给你5%搬家费！",
+      "tracks": ["互动娱乐", "RTC 音视频"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Pico"],
+      "rtc_relevance": "high",
+      "summary": "字节VR平台Pico用超高分成吸引语聊公会入驻，VR语聊场景需要空间音频RTC能力"
+    },
+    {
+      "title": "月流水有望过千万，三七开年就找到了新爆款？",
+      "tracks": ["游戏"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Last Asylum", "Whiteout Survival", "Last War"],
+      "rtc_relevance": "low",
+      "summary": "三七互娱Last Asylum日流水5-7万美元，放置街机SLG赛道持续火热"
+    },
+    {
+      "title": "OpenClaw在中国AI圈的发酵和扩散速度，远超硅谷想象",
+      "tracks": ["AI + 实时互动", "AI 工具 & 效率"],
+      "markets": ["全球", "北美"],
+      "apps_mentioned": ["OpenClaw"],
+      "rtc_relevance": "high",
+      "summary": "OpenClaw Agent接入群聊需要IM通道，字节/阿里/腾讯集体上线Agent云服务"
+    },
+    {
+      "title": "智能戒指厂商Oura又双叕收购了一家AI初创公司",
+      "tracks": ["其他出海赛道", "AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Oura"],
+      "rtc_relevance": "low",
+      "summary": "Oura收购Doublepoint手势识别公司，估值110亿美元，智能戒指出货550万枚"
+    },
+    {
+      "title": "OpenClaw\"养虾\"，WiFi\"穿墙\"透视，两大AI开源项目引爆GitHub",
+      "tracks": ["AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["OpenClaw"],
+      "rtc_relevance": "medium",
+      "summary": "OpenClaw等AI开源项目爆火，涉及Agent自动化控制和隐私安全议题"
+    },
+    {
+      "title": "\"死了么\"创始人创业成立新公司；动画电影《深海》启动游戏开发计划",
+      "tracks": ["游戏", "短剧 & 内容"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "游戏和影视行业动态汇总"
+    },
+    {
+      "title": "36氪出海·关注｜乱局之下，新加坡\"亚洲锚点\"价值凸显",
+      "tracks": ["其他出海赛道"],
+      "markets": ["东南亚"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "中东冲突下企业家全球布局分析，新加坡/香港/迪拜三地对比"
+    },
+    {
+      "title": "36氪出海·AI｜赛博分身出击，AI社交Elys一夜刷屏",
+      "tracks": ["AI + 实时互动", "IM 即时通讯", "社交泛娱乐"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Elys"],
+      "rtc_relevance": "high",
+      "summary": "AI社交Elys用赛博分身替用户做预社交，单用户10小时使用，AI分身通信需IM/RTC基建"
+    },
+    {
+      "title": "氧气语音官宣张韶涵，将影响语音圈未来三年格局？！",
+      "tracks": ["互动娱乐", "RTC 音视频"],
+      "markets": ["全球"],
+      "apps_mentioned": ["氧气语音"],
+      "rtc_relevance": "high",
+      "summary": "氧气语音签约张韶涵，明星季投入超亿元，语聊房头部平台品牌化加速，RTC用量将增长"
+    },
+    {
+      "title": "从\"拼团\"起家，澳洲华人6年打造火遍美澳的网红猫砂品牌",
+      "tracks": ["电商/跨境"],
+      "markets": ["北美", "全球"],
+      "apps_mentioned": ["michu"],
+      "rtc_relevance": "none",
+      "summary": "华人在澳洲做豆腐猫砂品牌出海案例"
+    },
+    {
+      "title": "最低15%！谷歌商店降低全球应用开发者分成",
+      "tracks": ["其他出海赛道"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "low",
+      "summary": "谷歌Play费率降至20%+5%，开放第三方支付和应用商店，降低出海App分发成本"
+    },
+    {
+      "title": "直接在搜索框里做规划、编程？Google Search上线AI生产力工具Canvas",
+      "tracks": ["AI 工具 & 效率"],
+      "markets": ["北美"],
+      "apps_mentioned": ["Google Canvas"],
+      "rtc_relevance": "none",
+      "summary": "Google在搜索中集成Canvas AI生产力工具，可生成App和学习计划"
+    },
+    {
+      "title": "倒计时7天丨城市沙龙·武汉站：共探游戏 & 泛娱乐出海新势能",
+      "tracks": ["游戏", "社交泛娱乐"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "low",
+      "summary": "扬帆出海武汉站活动预告，聚焦游戏和泛娱乐出海"
+    },
+    {
+      "title": "百余款社交应用突发下架，苹果新规\"亮剑\"，匿名社交该何去何从？",
+      "tracks": ["互动娱乐", "RTC 音视频", "社交泛娱乐"],
+      "markets": ["北美", "全球"],
+      "apps_mentioned": ["Joi", "Coco", "Monkey Run", "SoulChill", "OyeTalk"],
+      "rtc_relevance": "high",
+      "summary": "苹果下架100+款出海社交App，陌生人视频聊天赛道面临合规洗牌，需RTC+内容审核一体化方案"
+    },
+    {
+      "title": "谷歌将全球下调应用开发者费用；亚马逊裁员；捏Ta完成融资丨扬帆晚报",
+      "tracks": ["AI + 实时互动", "其他出海赛道"],
+      "markets": ["全球"],
+      "apps_mentioned": ["捏Ta"],
+      "rtc_relevance": "medium",
+      "summary": "捏Ta完成超千万美元PreA+融资，AI原生社区赛道持续获得资本加注"
+    },
+    {
+      "title": "36氪出海·行业｜医疗健康产业出海——创新药篇（上）",
+      "tracks": ["其他出海赛道"],
+      "markets": ["北美", "欧洲", "全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "全球创新药市场超1.6万亿美元，中国药企加速出海，与RTC无直接关联"
+    },
+    {
+      "title": "36氪出海·活动｜中日联结：中国机器人如何打开日本市场？",
+      "tracks": ["其他出海赛道"],
+      "markets": ["日韩"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "中国机器人出海日本线下活动预告"
+    },
+    {
+      "title": "只有6人的游戏发行公司冲击IPO？背后研发团队来自广州",
+      "tracks": ["游戏"],
+      "markets": ["全球"],
+      "apps_mentioned": ["JoyByte"],
+      "rtc_relevance": "none",
+      "summary": "6人游戏发行公司JoyByte赴美IPO，年营收2000万美元"
+    },
+    {
+      "title": "美伊冲突下，中国出海生态如何通过\"黑天鹅\"压力测试？",
+      "tracks": ["电商/跨境", "社交泛娱乐", "短剧 & 内容"],
+      "markets": ["中东", "全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "medium",
+      "summary": "中东冲突导致传统贸易通道中断，数字内容和社交产品填补文化真空——RTC基础设施需考虑区域可用性"
+    },
+    {
+      "title": "为什么中国的人形机器人产业在早期市场领先？",
+      "tracks": ["其他出海赛道", "AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "low",
+      "summary": "中国人形机器人2025年出货量全球领先，Unitree出货量是Figure和Tesla的36倍"
+    },
+    {
+      "title": "2026全球非游应用趋势报告解读",
+      "tracks": ["社交泛娱乐", "短剧 & 内容", "电商/跨境"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "medium",
+      "summary": "全球非游App趋势：短剧引爆变现、社交品类分化、AI工具崛起，社交品类增长暗含RTC需求"
+    },
+    {
+      "title": "阿里千问技术负责人林俊旸宣布卸任；雷鸟创新联手德国电信发布AI智能眼镜",
+      "tracks": ["AI 工具 & 效率", "其他出海赛道"],
+      "markets": ["欧洲", "全球"],
+      "apps_mentioned": ["Rokid", "Manifold AI"],
+      "rtc_relevance": "low",
+      "summary": "AI眼镜赛道持续升温，雷鸟X3 Pro接入多个AI大模型"
+    },
+    {
+      "title": "36氪出海·行业｜2026展望：比亚迪、奇瑞争出海\"一哥\"",
+      "tracks": ["其他出海赛道"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "low",
+      "summary": "中国车企出海加速，车载座舱AI融合趋势——未来车载RTC（远程诊断/车内通话）可能有需求"
+    },
+    {
+      "title": "2月卡塔尔创投要闻",
+      "tracks": ["其他出海赛道"],
+      "markets": ["中东"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "卡塔尔投资机遇汇总，中国品牌薇诺娜进入卡塔尔"
+    },
+    {
+      "title": "阿联酋央行携手G42旗下Core42打造主权金融云平台",
+      "tracks": ["其他出海赛道"],
+      "markets": ["中东"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "中东数字化转型提速，阿联酋AI基金投资，中国车企进入阿联酋"
+    },
+    {
+      "title": "个人开发者做了年入5000万美元的AI App，今天被同赛道No. 1收购",
+      "tracks": ["AI 工具 & 效率", "其他出海赛道"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Cal AI", "MyFitnessPal", "BitePal", "Yazio"],
+      "rtc_relevance": "low",
+      "summary": "Cal AI年营收5000万美元被MyFitnessPal收购，AI+垂直场景商业模式验证"
+    },
+    {
+      "title": "MiniMax交卷，闫俊杰瞄准三大战场",
+      "tracks": ["AI + 实时互动", "AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["MiniMax", "Talkie"],
+      "rtc_relevance": "high",
+      "summary": "MiniMax年收入7904万美元，海外占73%，Talkie AI社交是增长引擎，AI社交出海商业模式验证"
+    },
+    {
+      "title": "冲上十个国家免费榜TOP1，三七互娱暗黑题材放置街机SLG异军突起",
+      "tracks": ["游戏"],
+      "markets": ["全球", "欧洲"],
+      "apps_mentioned": ["Last Asylum"],
+      "rtc_relevance": "low",
+      "summary": "Last Asylum总下载109万收入75万美元，放置街机SLG赛道趋势持续"
+    },
+    {
+      "title": "Unity海外资源商店禁止国区访问；Rokid AI眼镜接入四大AI模型",
+      "tracks": ["游戏", "AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Rokid", "MaxClaw"],
+      "rtc_relevance": "low",
+      "summary": "Unity封锁中国区资源商店，Rokid接入Gemini/ChatGPT/DeepSeek/通义千问，MaxClaw移动端上线"
+    },
+    {
+      "title": "AWE 2026将在上海开幕（36氪出海·家电消费电子出海报道）",
+      "tracks": ["其他出海赛道"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Amazfit", "RingConn", "MemoMind"],
+      "rtc_relevance": "low",
+      "summary": "家电消费电子出海趋势：品牌化+本土化+AI融合，智能穿戴和AI眼镜赛道活跃"
+    },
+    {
+      "title": "半年后旧梗重启，在新兴市场月入百万？",
+      "tracks": ["社交泛娱乐", "AI + 实时互动"],
+      "markets": ["东南亚", "北美"],
+      "apps_mentioned": ["Starla", "Amora"],
+      "rtc_relevance": "medium",
+      "summary": "Starla的Soulmate画像从美国火到印尼，Amora月入20万美元，社交玩法跨市场复制潜力"
+    },
+    {
+      "title": "a16z领投200万美元，一款产品瞄准北美Alpha世代社交市场",
+      "tracks": ["社交泛娱乐"],
+      "markets": ["北美", "欧洲"],
+      "apps_mentioned": ["Coverstar"],
+      "rtc_relevance": "low",
+      "summary": "Coverstar砍掉私信/无限下拉，做Alpha世代安全社交，a16z领投200万美元"
+    },
+    {
+      "title": "美团：必要时暂停中东地区服务；阿里巴巴AI品牌统一为千问丨扬帆晚报",
+      "tracks": ["电商/跨境", "AI 工具 & 效率"],
+      "markets": ["中东", "全球"],
+      "apps_mentioned": ["Keeta", "千问"],
+      "rtc_relevance": "low",
+      "summary": "美团Keeta必要时暂停中东服务，银河通用机器人融资25亿元"
+    },
+    {
+      "title": "36氪出海·行业｜Token出海，将中国电力卖给全世界",
+      "tracks": ["AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["MiniMax", "Kimi", "DeepSeek"],
+      "rtc_relevance": "medium",
+      "summary": "中国AI模型占OpenRouter Token消耗61%，AI出海带动基础设施需求——RTC作为AI Agent通信基建有新增量"
+    },
+    {
+      "title": "中国互联网出海一周头条 | 白鲸出品399期",
+      "tracks": ["AI 工具 & 效率", "社交泛娱乐", "游戏"],
+      "markets": ["全球"],
+      "apps_mentioned": ["BitePal", "Cal AI", "Reface", "SeaArt AI", "MuseGate"],
+      "rtc_relevance": "low",
+      "summary": "BitePal月流水300万美元，AI图片赛道SeaArt AI稳居生成类第1"
+    },
+    {
+      "title": "一周要闻NO.189丨Unity被曝可能出售中国业务",
+      "tracks": ["游戏", "AI 工具 & 效率"],
+      "markets": ["全球"],
+      "apps_mentioned": ["Unity", "ChatGPT"],
+      "rtc_relevance": "low",
+      "summary": "Unity可能出售中国业务估值超10亿美元；派拉蒙1110亿美元吞下华纳"
+    },
+    {
+      "title": "扬帆每周合作精选No.195",
+      "tracks": ["游戏", "其他出海赛道"],
+      "markets": ["全球"],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "出海合作需求汇总：游戏海外合作、支付资源、AI工具变现"
+    }
+  ]
+}

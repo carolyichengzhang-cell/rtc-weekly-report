@@ -1,0 +1,782 @@
+{
+  "meta": {
+    "period": "2026-03-08 ~ 2026-03-15",
+    "article_count": 32,
+    "analyzed_at": "2026-03-15T22:30:00.000Z"
+  },
+  "tldr": [
+    "欢聚集团(JOYY)直播业务连续三季度增长，AI虚拟礼物渗透率突破30%，验证了AI+实时互动的商业变现路径",
+    "Yalla Group付费用户同比下滑15.4%但MAU创新高，中东泛娱乐市场正从'付费驱动'转向'规模+效率'模式，语聊房变现模型面临重构",
+    "腾讯秘密启动微信AI智能体项目，Q3面向全体用户推出——这将彻底改变IM内的交互范式，对TRTC的音视频调用场景产生深远影响",
+    "AI语音输入法赛道爆发（Wispr Flow估值7亿美元），语音交互正从'输入工具'升级为'意图理解层'，对RTC语音处理链路提出新要求",
+    "OpenClaw(小龙虾)智能体全民爆发，腾讯WorkBuddy上线对齐——AI Agent嵌入IM群聊成为新范式，群聊场景从'人对人'进化为'人+Agent'混合协作",
+    "a16z第6期AI Top50榜单显示AI产品格局趋于稳定，CapCut年流水破10亿美元成唯一双端上榜视频产品，AI视频编辑赛道进入寡头期",
+    "AI短剧《神·笔》播放量破亿，AI影视制作渗透率达80-90%——AI生成视频内容正在从技术demo走向商业化量产，对实时渲染和流媒体分发提出新需求",
+    "土耳其游戏融资持续火热但趋于理性，Dream Games获25亿美元融资创纪录——休闲游戏出海团队的实时互动需求(语音组队、直播互动)值得关注"
+  ],
+  "rtc_insights": [
+    {
+      "title": "Bigo Live的AI互动礼物验证了'AI+RTC'的变现公式——但腾讯在这条路上落后了",
+      "tags": [
+        "RTC音视频",
+        "互动娱乐",
+        "AI+实时互动"
+      ],
+      "body": "欢聚集团2025年Q4财报揭示了一个被低估的趋势：AI正在直接驱动直播收入增长。Bigo Live的AI生成虚拟礼物渗透率在1月突破30%，意味着用户送出的每3份礼物中就有1份由AI生成；AI多模态推荐系统使用户观看时长环比提升5.6%，北美新用户有效观看率环比提升10.3%，30日留存提升4.8%。这些数据指向一个清晰结论：AI不是直播的装饰品，而是直播变现链路的核心驱动力。\n\n从RTC技术视角看，AI虚拟礼物的本质是'实时AI渲染+低延迟分发'——用户触发后，需要在毫秒级内完成AI生成、渲染、推流到接收端显示的完整链路。这对RTC SDK的实时AI推理能力、渲染管线、端侧性能优化提出了新要求。欢聚的数据证明这条路能赚钱，但腾讯云音视频在'AI+直播互动'场景的产品化能力尚未形成差异化优势。更值得警惕的是，Bigo Live在北美区域推出全程直播真人秀节目拉动自然日活增长3%，说明内容形态创新+AI能力正在构建护城河。",
+      "judgment": "AI互动礼物是直播变现的下一个标配能力，谁先把它做成SDK级产品谁就能吃到这波红利",
+      "opportunity": "将AI实时互动礼物能力打包为TRTC SDK的增值模块，面向海外直播平台客户提供'AI互动礼物生成+实时渲染+推流'一站式方案",
+      "risk": "欢聚在自有平台已跑通闭环，如果将BIGO Ads+AI互动能力打包对外输出SaaS，将直接与TRTC的ToB业务竞争",
+      "related_articles": [
+        "营收回归增长，广告技术业务打开中长期想象空间｜欢聚财报解读"
+      ]
+    },
+    {
+      "title": "中东语聊房的'增长悖论'：MAU创新高但付费用户加速流失，Yalla的困境是整个赛道的预警",
+      "tags": [
+        "互动娱乐",
+        "社交泛娱乐",
+        "IM即时通讯"
+      ],
+      "body": "Yalla Group的2025年财报暴露了中东泛娱乐赛道一个结构性问题：Q4 MAU刷新4480万历史新高，但付费用户却降至1040万（同比-15.4%），这意味着平台正在变成一个'免费用户占领但付费意愿衰退'的局面。Yalla Q4社交业务收入同比下滑10%，游戏业务收入自6个季度以来首次低于3000万美元。公司不得不通过'降本'而非'增收'来维持41.2%的净利润率。\n\n这对TRTC的中东客户有直接影响。Yalla的核心产品就是语聊房——依赖RTC语音通话能力的场景。当付费用户萎缩，平台会压缩SDK采购成本或寻找更低价的供应商。更重要的是，Yalla正在将赌注押在电竞赛事（成为2026年沙特电竞联赛官方合作伙伴），试图通过'游戏+社交+电竞直播'的三角形模型重新激活付费。这意味着中东市场的RTC需求正在从单纯的语聊房向'电竞直播+实时互动+社交'的复合场景迁移，TRTC需要提前布局。",
+      "judgment": "中东语聊房的付费天花板已经显现，下一个增长点是'电竞社交'——需要同时具备低延迟直播、多人语音、实时互动的复合RTC能力",
+      "opportunity": "针对中东市场推出'电竞社交'场景的RTC解决方案包，整合赛事直播+多人语音房+实时弹幕互动能力，提前卡位Yalla等客户的转型需求",
+      "risk": "如果中东泛娱乐平台集体进入'降本增效'周期，TRTC可能面临客户预算缩减和价格战压力",
+      "related_articles": [
+        "海外的泛娱乐市场，付费用户越来越难找了 | Yalla财报解读"
+      ]
+    },
+    {
+      "title": "微信AI智能体+OpenClaw引爆'Agent入群'新范式——IM群聊正在从'人对人'进化为'人+AI Agent'混合体",
+      "tags": [
+        "IM即时通讯",
+        "AI+实时互动",
+        "社交泛娱乐"
+      ],
+      "body": "本周最值得关注的趋势不是某个产品的增长数据，而是一个范式级别的变化：AI Agent正在以'群成员'身份嵌入即时通讯场景。腾讯秘密启动微信AI智能体项目（计划Q3推出，以对话形式接入小程序完成叫车、外卖等任务）；OpenClaw在中国爆发式增长，QQ官方开放接入（1个实名号最多5个机器人）；腾讯WorkBuddy上线，1分钟连接企微；Meta收购Moltbook（OpenClaw专属社交网络，Agent可以像人一样发帖、评论、互动）。\n\n这对RTC/IM基础设施的影响是深层的：(1)当群聊中有AI Agent参与，消息系统需要区分'人的消息'和'Agent的消息'，信令协议、消息路由、存储策略都需要适配；(2)Agent可能触发音视频调用——比如用户让AI Agent帮忙发起视频会议、接入直播间、转写语音消息，这把IM和RTC的边界模糊化了；(3)Token消耗成为新的成本变量——文章提到有人'跑一天OpenClaw花5000万Token'，这意味着在IM场景中嵌入Agent的成本可能远超传统消息流。",
+      "judgment": "2026年将是'Agent嵌入IM'的元年，IM/RTC SDK需要从'连接人与人'升级为'连接人与Agent'的基础设施",
+      "opportunity": "在TRTC/IM SDK中增加Agent适配层：Agent身份标识、Agent触发音视频通话、Agent语音消息实时转写等能力，让客户能快速在自己的App中集成AI Agent",
+      "risk": "如果微信直接将AI Agent+小程序的能力闭环在自己生态内，第三方IM/RTC的市场空间会被进一步挤压",
+      "related_articles": [
+        "传腾讯秘密启动微信AI智能体项目；加拿大正式撤销关闭TikTok当地业务的决定；Meta收购OpenClaw专属社交网络Moltbook丨扬帆晚报",
+        "腾讯彻底“虾”化，地区官方砸百万元补贴，这只龙虾究竟引爆了什么？",
+        "中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品400期"
+      ]
+    },
+    {
+      "title": "AI语音输入从'工具'变'入口'——语音交互范式的变革将重新定义RTC语音处理链路",
+      "tags": [
+        "RTC音视频",
+        "AI+实时互动"
+      ],
+      "body": "AI语音输入法赛道在本周被集中报道：Wispr Flow融资8100万美元估值7亿，Typeless在Product Hunt霸榜，搜狗称日均语音使用近20亿次，智谱、豆包、闪电说等玩家扎堆。文章作者亲身验证：从打字切换到语音输入仅用一周，53分钟完成5500字初稿，每分钟155字（远超打字冠军的175字），节省2.5小时。\n\n表面看这是输入法赛道的故事，但深层影响直指RTC：(1)AI语音输入的核心能力是'语音→意图理解→结构化文本'，这与RTC中的实时语音转写、智能降噪、语音指令识别是同源技术。当用户习惯了'对着说话就能输出高质量文本'后，他们在视频会议、直播间、语聊房中也会期待同等体验——实时字幕、智能摘要、语音指令控制；(2)文章特别提到，新一代语音输入法'直接取消了打字键盘，语音键提拔到C位'，这意味着语音正在从辅助输入变为主输入通道。对RTC来说，语音质量（降噪、回声消除、带宽自适应）的重要性将进一步提升。",
+      "judgment": "AI语音输入的普及正在重塑用户对'语音交互'的预期，RTC SDK需要在语音处理链路中内置AI理解能力而不仅仅是传输能力",
+      "opportunity": "将AI语音理解能力（实时转写、意图识别、多语言翻译）打包为TRTC的增值AI模块，帮助客户在视频会议/直播/语聊房中实现'智能语音'体验",
+      "risk": "语音AI能力正在被输入法厂商（搜狗、豆包）和垂直玩家（Wispr、Typeless）快速商品化，RTC厂商如果不及时跟进，这层能力会被他们截流",
+      "related_articles": [
+        "AI语音输入法，人类进入“不打字”时代"
+      ]
+    },
+    {
+      "title": "AI短剧破亿播放量+CapCut年流水破10亿——AI视频内容的'生成-编辑-分发'链路正在成形，实时渲染成为瓶颈",
+      "tags": [
+        "RTC音视频",
+        "AI+实时互动",
+        "短剧&内容"
+      ],
+      "body": "两条看似不相关的信息拼在一起，揭示了一个重要趋势：AI短剧《神·笔》春节播放量破亿，核心环节AI渗透率80-90%（从剧本、场景生成到后期制作）；与此同时，a16z榜单显示CapCut移动端MAU排名仅次于ChatGPT，2025年全球年流水首次突破10亿美元。爱诗科技完成3亿美元C轮融资（亚洲AI视频生成领域最大单次融资）。\n\n这条链路正在闭合：AI生成原始素材（爱诗科技等）→AI编辑加工（CapCut等）→分发平台（芒果TV、TikTok等）。从RTC视角看，当AI视频内容从'单机生成'走向'实时协作生成'（多人同时编辑AI视频、实时预览渲染效果、直播中实时生成互动内容），对实时音视频传输的带宽和延迟提出了极高要求。特别是在直播场景中，'AI实时生成+低延迟推流'的能力将成为差异化竞争力。文章提到Bigo Live的AI互动礼物渗透率突破30%，这就是AI实时渲染在直播中的一个早期应用。",
+      "judgment": "AI视频内容的量产化将催生'实时AI渲染+低延迟分发'的新RTC需求，这是一个正在打开的蓝海市场",
+      "opportunity": "推出面向AI视频内容创作者的'实时协作渲染'解决方案——多人同时编辑AI视频时的低延迟同步、实时预览和推流",
+      "risk": "CapCut（字节）正在构建从AI生成到编辑到分发的闭环，如果字节把这层能力内化到自己的云服务中，对TRTC在视频创作场景的机会构成威胁",
+      "related_articles": [
+        "a16z又发榜了，这一次，字节成最大赢家？",
+        "36氪出海·AI｜和刘慈欣的AI短剧收视破亿，但他说未来不再有科幻小说：对话陈楸帆",
+        "谷歌完成320亿美元收购Wiz；TikTok Shop计划进军韩国市场；爱诗科技完成3亿美元C轮融资丨扬帆晚报"
+      ]
+    }
+  ],
+  "trend_signals": [
+    {
+      "signal": "AI互动能力正在成为直播平台的核心变现引擎",
+      "direction": "rising",
+      "strength": "strong",
+      "evidence": "Bigo Live AI虚拟礼物渗透率1月突破30%（占整体虚拟礼物消耗），AI推荐系统使北美新用户有效观看率环比+10.3%，用户观看时长环比+5.6%"
+    },
+    {
+      "signal": "中东泛娱乐市场付费用户持续萎缩，平台被迫向电竞和广告转型",
+      "direction": "falling",
+      "strength": "strong",
+      "evidence": "Yalla Q4付费用户1040万同比-15.4%，社交收入同比-10%，游戏收入6季度来首次低于3000万美元；Yalla转向成为2026年沙特电竞联赛官方合作伙伴"
+    },
+    {
+      "signal": "AI Agent嵌入IM/群聊成为行业共识",
+      "direction": "emerging",
+      "strength": "strong",
+      "evidence": "腾讯微信AI智能体计划Q3推出；QQ开放OpenClaw接入（1个号最多5个机器人）；腾讯WorkBuddy上线；Meta收购Moltbook（Agent社交网络）；深圳龙岗发布'龙虾十条'；无锡高新区12条养虾政策单项最高500万"
+    },
+    {
+      "signal": "AI语音交互从辅助工具升级为主输入通道",
+      "direction": "rising",
+      "strength": "strong",
+      "evidence": "Wispr Flow融资8100万美元估值7亿；搜狗日均语音使用近20亿次；Typeless用户实测每分钟155字（打字冠军175字）；新一代产品直接取消打字键盘，语音键C位"
+    },
+    {
+      "signal": "AI视频内容从技术demo走向商业化量产",
+      "direction": "rising",
+      "strength": "strong",
+      "evidence": "AI短剧《神·笔》播放量破亿，AI渗透率80-90%；CapCut 2025年全球年流水破10亿美元；爱诗科技3亿美元C轮创亚洲AI视频生成融资纪录"
+    },
+    {
+      "signal": "土耳其休闲游戏融资持续活跃但趋于理性",
+      "direction": "emerging",
+      "strength": "moderate",
+      "evidence": "2025年3月-2026年2月土耳其10家游戏企业12笔融资；Dream Games以25亿美元融资创纪录；Loom Games估值达10亿美元；交易数量从前一个半年的8笔降至全年12笔"
+    },
+    {
+      "signal": "AI对传统行业的颠覆被量化，社交和直播被判定为'已稳固'象限",
+      "direction": "emerging",
+      "strength": "moderate",
+      "evidence": "Moloco+BCG联合报告：社媒、流媒体位于'已稳固'象限（用户信任度高、AI替代风险低）；游戏位于'未设防'象限（AI替代风险低但客户忠诚度不足）；教育位于'已失守'象限"
+    },
+    {
+      "signal": "腾讯云海外扩张加速，音视频+AI出海能力被重点提及",
+      "direction": "rising",
+      "strength": "moderate",
+      "evidence": "腾讯云MWC宣布法兰克福新增可用区（增至3个），混元3D加速出海，海外客户规模2025年同比翻番，过去三年开区速度排中国云厂商前列"
+    }
+  ],
+  "app_discoveries": [
+    {
+      "name": "Hatch Sleep",
+      "track": "其他出海赛道",
+      "description": "助眠智能灯具配套App，通过灯光+白噪音构建'睡眠仪式感'",
+      "rtc_relevance": "助眠音效的实时播放和设备远程控制场景与低延迟音频流传输相关；如果未来扩展社区功能（如冥想直播、助眠语音房），将直接需要RTC能力",
+      "market": "北美",
+      "data_points": "月流水稳定300万美元左右，新品Restore 3售价170美元"
+    },
+    {
+      "name": "Typeless",
+      "track": "AI 工具 & 效率",
+      "description": "AI语音输入法，华人开发，Product Hunt霸榜，直接取消打字键盘",
+      "rtc_relevance": "核心技术是实时语音识别+AI意图理解，与RTC的语音处理、实时转写、智能降噪技术同源",
+      "market": "全球",
+      "data_points": "Product Hunt连日排行榜前列，用户实测每分钟155字输入"
+    },
+    {
+      "name": "Wispr Flow",
+      "track": "AI 工具 & 效率",
+      "description": "AI语音输入工具，比打字快4倍以上",
+      "rtc_relevance": "语音识别和实时AI处理能力与RTC语音链路同源技术，可能成为RTC SDK的语音AI模块供应商或竞争对手",
+      "market": "北美",
+      "data_points": "融资8100万美元，估值7亿美元"
+    },
+    {
+      "name": "WorkBuddy",
+      "track": "AI + 实时互动",
+      "description": "腾讯全场景AI智能体，1分钟连接企微，对标OpenClaw",
+      "rtc_relevance": "直接嵌入企业微信群聊，作为AI Agent参与IM交互——如果集成音视频能力（如Agent自动发起/加入会议），将成为IM+RTC+AI融合场景的标杆",
+      "market": "全球",
+      "data_points": "3月9日上线，从下载到连接企微最快1分钟"
+    },
+    {
+      "name": "GPTZero",
+      "track": "AI 工具 & 效率",
+      "description": "AI检测工具→写作辅助平台转型，华人创立",
+      "rtc_relevance": "低，纯文本分析工具，无直接RTC需求",
+      "market": "北美",
+      "data_points": "ARR 2400万美元（不到一年营收翻番），从AI检测转型为写作辅助平台"
+    },
+    {
+      "name": "Seede AI / Veeso AI",
+      "track": "AI 工具 & 效率",
+      "description": "AI图文设计工具，生成可编辑设计源文件而非图片，0投放6个月获10万用户",
+      "rtc_relevance": "如果扩展实时协作编辑功能（多人同时设计、实时预览同步），将需要RTC的实时数据同步能力",
+      "market": "东南亚、全球",
+      "data_points": "0投放6个月积累10万用户"
+    },
+    {
+      "name": "Starla",
+      "track": "社交泛娱乐",
+      "description": "AI占星产品，靠'Soulmate画像'社媒爆火，从美国复制到东南亚",
+      "rtc_relevance": "如果加入AI视频占星、1v1视频咨询等功能，将需要实时音视频通话能力",
+      "market": "东南亚",
+      "data_points": "曾在美国月入200万美元，目前在新兴市场月入20万美元（超百万人民币）"
+    },
+    {
+      "name": "Cal AI",
+      "track": "AI 工具 & 效率",
+      "description": "拍照算热量AI健康App，由高中生创业，被MyFitnessPal收购",
+      "rtc_relevance": "低，图像识别为主；但如果扩展健康社区（运动直播、饮食打卡语音房），可能需要RTC",
+      "market": "全球",
+      "data_points": "下载1500万，ARR 5000万美元，创始人19岁在校大学生"
+    },
+    {
+      "name": "Little Language Lessons",
+      "track": "AI 工具 & 效率",
+      "description": "Google AI Labs实验项目，拍照+场景化AI语言学习",
+      "rtc_relevance": "中等——如果集成实时对话练习功能（AI语伴），将需要实时语音识别和AI对话的RTC能力",
+      "market": "全球",
+      "data_points": "Google AI Labs测试项目，支持16种语言，课程生成仅需10秒"
+    }
+  ],
+  "business_opportunities": [
+    {
+      "title": "AI互动礼物SDK——把Bigo Live验证的变现模型产品化",
+      "description": "欢聚Bigo Live的AI虚拟礼物渗透率突破30%，证明了'AI生成+实时渲染+礼物打赏'的变现路径可行。将这种能力抽象为SDK级产品（AI互动礼物生成引擎+实时渲染+推流方案），面向海外中小直播平台销售。这些平台没有Bigo的AI团队，但有同样的变现需求。",
+      "target_market": "全球（特别是东南亚、中东的中小直播平台）",
+      "urgency": "high",
+      "action_items": [
+        "调研Bigo Live AI互动礼物的技术实现路径（端侧渲染还是云端渲染、AI生成模型类型）",
+        "联系TRTC现有直播客户（如中东、东南亚的泛娱乐平台），做需求验证",
+        "设计'AI互动礼物SDK'产品原型：AI生成→实时渲染→推流三段式架构",
+        "在Q2推出beta版本，Q3正式商业化"
+      ]
+    },
+    {
+      "title": "IM Agent适配层——让客户的App快速集成AI智能体",
+      "description": "微信AI智能体、OpenClaw、WorkBuddy三线并进，AI Agent嵌入群聊已成不可逆趋势。TRTC的IM SDK应该抢先推出'Agent适配层'：支持Agent身份注册、Agent消息类型标识、Agent触发音视频调用、Agent语音消息实时转写等能力。这将是IM SDK的差异化卖点，因为绝大多数竞品还在做传统人对人通讯。",
+      "target_market": "全球",
+      "urgency": "high",
+      "action_items": [
+        "分析OpenClaw与IM系统的集成架构（消息协议、Agent状态管理、多模态交互）",
+        "在腾讯云IM SDK中新增Agent身份类型和Agent消息处理链路",
+        "设计Agent触发RTC调用的API（如Agent帮用户发起视频会议、Agent加入语音房旁听/记录）",
+        "撰写技术白皮书'AI Agent时代的IM基础设施'，在Q2 MWC/Developer Day发布"
+      ]
+    },
+    {
+      "title": "中东电竞社交场景——卡位Yalla等客户的转型需求",
+      "description": "Yalla的财报信号明确：语聊房付费见顶，转向电竞社交。中东有2026年沙特电竞联赛等大型赛事。TRTC应该推出面向中东电竞社交场景的打包方案：赛事直播（超低延迟推流）+ 多人语音组队（8人以上同时语音）+ 实时弹幕互动 + 赛事回放系统。",
+      "target_market": "中东、南亚",
+      "urgency": "medium",
+      "action_items": [
+        "与Yalla Group BD团队建立联系，了解其电竞社交场景的具体RTC需求",
+        "调研2026年沙特电竞联赛的技术架构和供应商选型情况",
+        "设计'电竞社交'场景方案包：赛事直播+多人语音+弹幕互动+录制回放",
+        "在中东市场Developer Meetup上做方案宣讲"
+      ]
+    },
+    {
+      "title": "AI语音增强模块——将语音AI能力嵌入RTC SDK",
+      "description": "AI语音输入法的爆发（Wispr Flow估值7亿、搜狗日均20亿次、多家创业公司涌入）证明用户对'智能语音'的需求已经被激活。TRTC可以借这波浪潮，在RTC SDK中内置AI语音增强模块：实时降噪+AI转写+意图理解+多语言翻译，让客户的视频会议/直播/语聊房也能拥有'AI语音输入法级别'的智能语音体验。",
+      "target_market": "全球",
+      "urgency": "medium",
+      "action_items": [
+        "评估将腾讯混元语音模型集成到TRTC SDK的技术可行性和延迟影响",
+        "设计'AI语音增强'API：包括实时转写、智能降噪、语音意图识别、多语言同声翻译",
+        "与TRTC现有视频会议客户做需求验证（如海外远程办公平台）",
+        "在Q3前推出AI语音增强模块的技术预览版"
+      ]
+    }
+  ],
+  "article_classifications": [
+    {
+      "title": "打造入睡仪式感，App月入300万美元？",
+      "tracks": [
+        "其他出海赛道",
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "北美"
+      ],
+      "apps_mentioned": [
+        "Hatch Sleep",
+        "Hatch Restore",
+        "NextSense",
+        "Sleepal"
+      ],
+      "rtc_relevance": "low",
+      "summary": "Hatch凭借'灯光+白噪音'智能灯具，月流水300万美元，从婴儿助眠切入成人市场，强调仪式感而非技术"
+    },
+    {
+      "title": "AI语音输入法，人类进入“不打字”时代",
+      "tracks": [
+        "AI 工具 & 效率",
+        "AI + 实时互动"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Typeless",
+        "Wispr Flow",
+        "搜狗输入法",
+        "豆包输入法",
+        "智谱AI输入法",
+        "闪电说",
+        "LazyTyper"
+      ],
+      "rtc_relevance": "medium",
+      "summary": "AI语音输入法赛道爆发，Wispr Flow估值7亿美元，用户输入速度达每分钟155字，语音正从辅助变为主输入通道"
+    },
+    {
+      "title": "营收回归增长，广告技术业务打开中长期想象空间｜欢聚财报解读",
+      "tracks": [
+        "互动娱乐",
+        "社交泛娱乐",
+        "AI + 实时互动"
+      ],
+      "markets": [
+        "东南亚",
+        "中东",
+        "北美",
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Bigo Live",
+        "BIGO Ads"
+      ],
+      "rtc_relevance": "high",
+      "summary": "欢聚2025年营收21.25亿美元扭亏为盈，AI虚拟礼物渗透率突破30%，BIGO Ads同比增长38.5%成第二增长曲线"
+    },
+    {
+      "title": "离开 Founder Park，他决定用「内容逻辑」重新定义设计",
+      "tracks": [
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Seede AI",
+        "Veeso AI"
+      ],
+      "rtc_relevance": "low",
+      "summary": "AI设计产品Seede AI/Veeso AI以'可编辑设计源文件'为核心，0投放6个月获10万用户"
+    },
+    {
+      "title": "谷歌完成320亿美元收购Wiz；TikTok Shop计划进军韩国市场；爱诗科技完成3亿美元C轮融资丨扬帆晚报",
+      "tracks": [
+        "电商/跨境",
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "全球",
+        "日韩"
+      ],
+      "apps_mentioned": [
+        "TikTok Shop",
+        "爱诗科技",
+        "Wiz"
+      ],
+      "rtc_relevance": "medium",
+      "summary": "爱诗科技3亿美元C轮创亚洲AI视频生成融资纪录；TikTok Shop计划Q3进军韩国"
+    },
+    {
+      "title": "金帆再启，荣耀同行 | 2026年H1金帆奖申报计划正式启动！",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "扬帆出海2026年H1金帆奖申报启动，截止4月10日"
+    },
+    {
+      "title": "36氪出海·行业｜“十五五”医药出海新格局",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "医药出海新政策，获取全文失败"
+    },
+    {
+      "title": "势头不减，土耳其融资热潮持续近两年",
+      "tracks": [
+        "游戏"
+      ],
+      "markets": [
+        "中东",
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Pixel Flow!",
+        "Royal Match",
+        "Match Villains",
+        "Loom Games"
+      ],
+      "rtc_relevance": "low",
+      "summary": "土耳其游戏12个月12笔融资，Dream Games获25亿美元创纪录，投资趋于理性聚焦头部"
+    },
+    {
+      "title": "AI加速重塑市场，6大热门行业失守，机会仍在？",
+      "tracks": [
+        "AI 工具 & 效率",
+        "游戏"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "medium",
+      "summary": "Moloco+BCG报告量化AI颠覆指数：社媒/流媒体'已稳固'，游戏'未设防'，教育'已失守'，AI对买量效率影响大于开发"
+    },
+    {
+      "title": "女性成为健康监测硬件最活跃用户群？Whoop、Oura接连布局",
+      "tracks": [
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "北美"
+      ],
+      "apps_mentioned": [
+        "Whoop",
+        "Oura"
+      ],
+      "rtc_relevance": "low",
+      "summary": "Whoop女性用户同比增长150%，推出经期荷尔蒙分析服务，Oura发布女性健康AI模型"
+    },
+    {
+      "title": "乐信圣文的麻将消除冲进Top 4，堆叠消除新品跻身增长榜Top 12 | 2月全球手游下载榜",
+      "tracks": [
+        "游戏"
+      ],
+      "markets": [
+        "全球",
+        "东南亚",
+        "北美"
+      ],
+      "apps_mentioned": [
+        "快乐爱消除",
+        "Vita Mahjong",
+        "Kingshot",
+        "Rainbow Six Mobile",
+        "Subway Surfers City"
+      ],
+      "rtc_relevance": "low",
+      "summary": "2月全球手游下载榜：快乐爱消除2430万下载蝉联冠军，Vita Mahjong升至第4（累计下载2亿），Rainbow Six Mobile上线即登顶"
+    },
+    {
+      "title": "AI for Growth，PAGC 2026全面升级！",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "PAGC 2026展会5月27-28日广州举办，聚焦AI+出海，首届全球AI增长大会"
+    },
+    {
+      "title": "传腾讯秘密启动微信AI智能体项目；加拿大正式撤销关闭TikTok当地业务的决定；Meta收购OpenClaw专属社交网络Moltbook丨扬帆晚报",
+      "tracks": [
+        "IM 即时通讯",
+        "AI + 实时互动",
+        "社交泛娱乐"
+      ],
+      "markets": [
+        "全球",
+        "北美"
+      ],
+      "apps_mentioned": [
+        "微信AI智能体",
+        "TikTok",
+        "Moltbook",
+        "WorkBuddy",
+        "DuClaw"
+      ],
+      "rtc_relevance": "high",
+      "summary": "腾讯微信AI智能体Q3推出，以对话形式接入小程序；Meta收购Agent社交网络Moltbook；百度发布零部署OpenClaw服务DuClaw"
+    },
+    {
+      "title": "36氪出海·全球化公司｜当中国连锁走向世界，商米开始下一场远征",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "商米"
+      ],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "36氪出海·专访｜赴日谈：在日本做机器人，奇勃科技的一场反直觉硬仗",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "日韩"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "a16z又发榜了，这一次，字节成最大赢家？",
+      "tracks": [
+        "AI 工具 & 效率",
+        "RTC 音视频"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "CapCut",
+        "ChatGPT",
+        "Canva",
+        "美图",
+        "PixVerse",
+        "AI Mirror",
+        "Kling AI",
+        "Learna AI",
+        "Hi Translate",
+        "GIGA CHAT"
+      ],
+      "rtc_relevance": "medium",
+      "summary": "a16z第6期AI Top50：CapCut移动端MAU仅次ChatGPT，年流水破10亿美元；图像视频品类占44%；AI产品格局趋于稳定"
+    },
+    {
+      "title": "【活动报名】Connects深圳内容出海沙龙",
+      "tracks": [
+        "短剧 & 内容"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "内容出海沙龙3月25日深圳，聚焦短剧、AI动态漫、小说出海"
+    },
+    {
+      "title": "海外的泛娱乐市场，付费用户越来越难找了 | Yalla财报解读",
+      "tracks": [
+        "互动娱乐",
+        "社交泛娱乐",
+        "IM 即时通讯"
+      ],
+      "markets": [
+        "中东"
+      ],
+      "apps_mentioned": [
+        "Yalla",
+        "Yalla Ludo",
+        "Turbo Match"
+      ],
+      "rtc_relevance": "high",
+      "summary": "Yalla 2025年流水3.42亿美元，Q4付费用户同比-15.4%但MAU创新高4480万，转向电竞社交寻找增长"
+    },
+    {
+      "title": "“种花送花”游戏成出海新宠；北京厂商推新合成产品；贪玩、紫龙、易幻携新游冲榜丨2月榜单解读",
+      "tracks": [
+        "游戏"
+      ],
+      "markets": [
+        "全球",
+        "日韩",
+        "北美"
+      ],
+      "apps_mentioned": [
+        "Cell Survivor",
+        "永远的蔚蓝星球",
+        "我的花园世界",
+        "交错战线",
+        "心动三国"
+      ],
+      "rtc_relevance": "low",
+      "summary": "2月出海手游增长榜16款新品，小游戏出海常态化，Cell Survivor 2月流水6761万元（日本贡献60%）"
+    },
+    {
+      "title": "“龙虾”创始人将加入OpenAI；泡泡玛特将在美国加州开设总部；魔法原子完成新一轮5亿元融资丨扬帆晚报",
+      "tracks": [
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "全球",
+        "北美"
+      ],
+      "apps_mentioned": [
+        "OpenClaw",
+        "泡泡玛特"
+      ],
+      "rtc_relevance": "low",
+      "summary": "OpenClaw创始人加入OpenAI；泡泡玛特美国总部选址加州；灵初智能天使+Pre-A轮约20亿元"
+    },
+    {
+      "title": "迪拜商业论坛·中国5月落地深圳",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "中东"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "36氪出海·行业｜医疗健康产业出海——创新药篇（中）",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "屡被质疑的AI检测赛道，华人创业者把产品做到2400万美元ARR",
+      "tracks": [
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "北美"
+      ],
+      "apps_mentioned": [
+        "GPTZero"
+      ],
+      "rtc_relevance": "low",
+      "summary": "GPTZero ARR 2400万美元不到一年翻番，从AI检测工具转型为写作辅助平台，发现NeurIPS 2025论文中100处虚假引用"
+    },
+    {
+      "title": "「Pixel Flow!」像素级仿品被起诉后下架，混休也不能随意“换皮”",
+      "tracks": [
+        "游戏"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Pixel Flow!",
+        "Color Blaze Shooter"
+      ],
+      "rtc_relevance": "none",
+      "summary": "土耳其Loom Games起诉两被告换皮其热门游戏Pixel Flow!，休闲游戏版权争议加剧"
+    },
+    {
+      "title": "走区别于「多邻国」的实战派路线，Google测试由AI驱动的多语言小课程",
+      "tracks": [
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Little Language Lessons",
+        "Duolingo"
+      ],
+      "rtc_relevance": "medium",
+      "summary": "Google AI Labs发布Little Language Lessons实验项目，拍照+场景化AI语言学习，支持16种语言，课程生成仅需10秒"
+    },
+    {
+      "title": "腾讯彻底“虾”化，地区官方砸百万元补贴，这只龙虾究竟引爆了什么？",
+      "tracks": [
+        "IM 即时通讯",
+        "AI + 实时互动"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "OpenClaw",
+        "WorkBuddy",
+        "Xiaomi miclaw"
+      ],
+      "rtc_relevance": "high",
+      "summary": "OpenClaw全民爆发，腾讯WorkBuddy上线对齐，小米miclaw首发移动端Agent；深圳'龙虾十条'+无锡12条政策，单项最高500万"
+    },
+    {
+      "title": "腾讯拟加入派拉蒙收购华纳兄弟交易；网易停止资助名越稔洋工作室",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "36氪出海·活动｜中日联结Japan Jo!nting",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "日韩"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "36氪出海·AI｜和刘慈欣的AI短剧收视破亿，但他说未来不再有科幻小说：对话陈楸帆",
+      "tracks": [
+        "短剧 & 内容",
+        "AI 工具 & 效率"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "神·笔"
+      ],
+      "rtc_relevance": "medium",
+      "summary": "AI短剧《神·笔》播放量破亿，核心环节AI渗透率80-90%，芒果TV VIP付费模式；陈楸帆认为科幻创作已失效"
+    },
+    {
+      "title": "中国互联网出海一周头条 | 白鲸出品400期",
+      "tracks": [
+        "AI 工具 & 效率",
+        "社交泛娱乐"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [
+        "Starla",
+        "Cal AI",
+        "MyFitnessPal",
+        "OpenClaw",
+        "MiniMax"
+      ],
+      "rtc_relevance": "medium",
+      "summary": "周报汇总：Cal AI被MyFitnessPal收购（ARR 5000万美元）、OpenClaw中国爆发速度远超硅谷、MiniMax上市首份财报营收增长159%"
+    },
+    {
+      "title": "扬帆每周合作精选No.196",
+      "tracks": [
+        "其他出海赛道"
+      ],
+      "markets": [
+        "全球"
+      ],
+      "apps_mentioned": [],
+      "rtc_relevance": "none",
+      "summary": "获取全文失败"
+    },
+    {
+      "title": "阿里云登陆MWC，支持众多中国企业出海/SHEIN在欧盟月活用户达1.56亿",
+      "tracks": [
+        "AI 工具 & 效率",
+        "RTC 音视频",
+        "电商/跨境"
+      ],
+      "markets": [
+        "全球",
+        "欧洲"
+      ],
+      "apps_mentioned": [
+        "阿里云",
+        "腾讯云",
+        "SHEIN",
+        "vivo",
+        "TCL",
+        "比亚迪",
+        "WPS"
+      ],
+      "rtc_relevance": "high",
+      "summary": "腾讯云MWC新增法兰克福可用区，混元3D加速出海，海外客户2025年同比翻番；SHEIN欧盟月活1.56亿；阿里云推企业级Agent AI平台"
+    }
+  ]
+}

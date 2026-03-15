@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTC 实时互动洞察中心</title>
+    <style>
+:root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #232733;
+    --border: #2d3245;
+    --text: #e4e6f0;
+    --text2: #9299b8;
+    --accent: #6c5ce7;
+    --accent2: #a29bfe;
+    --green: #00b894;
+    --orange: #fdcb6e;
+    --red: #e17055;
+    --blue: #74b9ff;
+    --pink: #fd79a8;
+    --cyan: #00cec9;
+    --rtc-glow: #00cec940;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    line-height: 1.7;
+    padding: 0;
+}
+a { color: var(--accent2); text-decoration: none; }
+a:hover { color: var(--blue); }
+.container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+
+/* Header — 大渐变背景 */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, #1a1d27 0%, #2d1b69 50%, #1a1d27 100%);
+    border-bottom: 1px solid var(--border);
+}
+.page-header h1 {
+    font-size: 2.4em;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent2), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+.page-header .subtitle {
+    color: var(--text2);
+    font-size: 1.05em;
+    margin-bottom: 20px;
+}
+.page-header .meta {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.page-header .meta-item {
+    background: rgba(108,92,231,0.15);
+    border: 1px solid rgba(108,92,231,0.3);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.85em;
+    color: var(--accent2);
+}
+.page-header .period {
+    display: inline-block;
+    background: rgba(108,92,231,0.15);
+    border: 1px solid rgba(108,92,231,0.3);
+    border-radius: 20px;
+    padding: 6px 18px;
+    margin-top: 14px;
+    font-size: 0.9em;
+    color: var(--cyan);
+}
+
+/* Section */
+.section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 24px;
+}
+.section-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.section-title .icon { font-size: 24px; }
+
+/* Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+}
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+}
+.stat-card .number {
+    font-size: 1.5em;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent2), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.stat-card .label {
+    color: var(--text2);
+    font-size: 0.8em;
+    margin-top: 3px;
+}
+.stat-card.rtc-highlight {
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px var(--rtc-glow);
+}
+.stat-card.rtc-highlight .number {
+    background: linear-gradient(135deg, var(--cyan), #00b894);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* RTC Badge */
+.rtc-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--cyan), var(--accent));
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.73em;
+    font-weight: 500;
+    margin: 2px 4px 2px 0;
+}
+.tag-rtc {
+    background: var(--cyan);
+    color: #0f1117;
+    font-weight: 600;
+}
+
+/* Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88em;
+}
+.data-table th {
+    background: var(--surface2);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text2);
+    border-bottom: 2px solid var(--border);
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+.data-table tr:hover { background: rgba(108,92,231,0.06); }
+
+/* TL;DR Box */
+.tldr-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+}
+.tldr-title {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.tldr-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 0.92em;
+    line-height: 1.7;
+    color: var(--text);
+}
+.tldr-item .arrow {
+    color: var(--accent2);
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.tldr-item strong { color: var(--orange); }
+
+/* TLDR List (simple) */
+.tldr-list { list-style: none; padding: 0; }
+.tldr-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    font-size: 0.92em;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border);
+}
+.tldr-list li:last-child { border-bottom: none; }
+.tldr-list li::before {
+    content: "→";
+    color: var(--accent2);
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Insight Card */
+.insight-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: border-color 0.2s;
+}
+.insight-card:hover { border-color: var(--accent); }
+.insight-card.rtc-related {
+    border-left: 3px solid var(--cyan);
+    box-shadow: 0 0 8px var(--rtc-glow);
+}
+.insight-card h3 {
+    font-size: 1.05em;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text);
+}
+.insight-card .body {
+    font-size: 0.9em;
+    color: var(--text2);
+    line-height: 1.8;
+    margin: 10px 0;
+}
+.insight-card .meta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+.insight-card .meta-item {
+    font-size: 0.83em;
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    line-height: 1.5;
+}
+.insight-card .meta-item.opportunity {
+    border-color: var(--green);
+    color: var(--green);
+}
+.insight-card .meta-item.risk {
+    border-color: var(--red);
+    color: var(--red);
+}
+.insight-card .meta-item.judgment {
+    border-color: var(--orange);
+    color: var(--orange);
+}
+
+/* Trend Signal */
+.trend-signal {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--surface2);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    line-height: 1.7;
+}
+.trend-signal .direction {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+.trend-signal .direction.rising { background: #00b89420; color: var(--green); }
+.trend-signal .direction.falling { background: #e1705520; color: var(--red); }
+.trend-signal .direction.emerging { background: #fdcb6e20; color: var(--orange); }
+.trend-signal .evidence { font-size: 0.85em; color: var(--text2); margin-top: 4px; }
+
+/* App Discovery Card */
+.app-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: border-color 0.2s;
+    position: relative;
+}
+.app-card:hover { border-color: var(--accent); }
+.app-card .app-name {
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--accent2);
+}
+.app-card .app-desc { font-size: 0.85em; color: var(--text2); margin: 6px 0; line-height: 1.6; }
+.app-card .app-meta { font-size: 0.8em; color: var(--text2); line-height: 1.6; }
+.app-card.rtc-app {
+    border-color: var(--cyan);
+    box-shadow: 0 0 6px var(--rtc-glow);
+}
+.app-card .new-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: linear-gradient(135deg, #e17055, #fd79a8);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(225,112,85,0.4);
+}
+.app-card .rtc-score {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+.app-card .rtc-score.score-high { background: var(--cyan); color: #0f1117; }
+.app-card .rtc-score.score-medium { background: rgba(0,206,201,0.3); color: var(--cyan); }
+.app-card .rtc-score.score-low { background: rgba(0,206,201,0.1); color: var(--text2); }
+
+/* Business Opportunity */
+.biz-opp {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--orange);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+}
+.biz-opp.high { border-left-color: var(--red); }
+.biz-opp.medium { border-left-color: var(--orange); }
+.biz-opp.low { border-left-color: var(--blue); }
+.biz-opp h4 { font-size: 0.95em; font-weight: 700; margin-bottom: 6px; }
+.biz-opp .desc { font-size: 0.88em; color: var(--text2); margin: 6px 0; line-height: 1.7; }
+.biz-opp .actions { margin-top: 10px; }
+.biz-opp .action-item {
+    font-size: 0.83em;
+    color: var(--text2);
+    padding: 4px 0;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+}
+.biz-opp .action-item::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent2);
+}
+
+/* Article List */
+.article-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    transition: border-color 0.2s;
+}
+.article-item:hover { border-color: var(--accent); }
+.article-item .title {
+    font-size: 0.93em;
+    font-weight: 600;
+    color: var(--text);
+}
+.article-item .title a { color: var(--text); text-decoration: none; }
+.article-item .title a:hover { color: var(--accent2); }
+.article-item .meta {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 0.78em;
+    color: var(--text2);
+    flex-wrap: wrap;
+}
+.article-item .summary {
+    font-size: 0.85em;
+    color: var(--text2);
+    margin-top: 6px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Tab Navigation — 底边框指示条风格 */
+.tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.tab-nav::-webkit-scrollbar { height: 3px; }
+.tab-nav::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+.tab-btn {
+    flex-shrink: 0;
+    padding: 14px 22px;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: var(--text2);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); background: rgba(108,92,231,0.08); }
+.tab-btn.active {
+    color: var(--accent2);
+    border-bottom-color: var(--accent2);
+    background: rgba(108,92,231,0.1);
+}
+.tab-btn.monthly { color: var(--orange); }
+.tab-btn.monthly.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+    background: rgba(253,203,110,0.1);
+}
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Footer */
+.page-footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--text2);
+    font-size: 0.82em;
+    border-top: 1px solid var(--border);
+    margin-top: 30px;
+}
+
+/* Bar Chart */
+.bar-chart { display: flex; flex-direction: column; gap: 8px; }
+.bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bar-label {
+    width: 120px;
+    text-align: right;
+    font-size: 0.85em;
+    color: var(--text2);
+    flex-shrink: 0;
+}
+.bar-track {
+    flex: 1;
+    background: var(--surface2);
+    border-radius: 6px;
+    height: 26px;
+    overflow: hidden;
+}
+.bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    font-size: 0.78em;
+    font-weight: 600;
+    min-width: 30px;
+    transition: width 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container { padding: 12px; }
+    .page-header { padding: 40px 16px 28px; }
+    .page-header h1 { font-size: 1.8em; }
+    .section { padding: 18px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .insight-card .meta-row { flex-direction: column; }
+    .bar-label { width: 80px; font-size: 0.78em; }
+    .tab-btn { padding: 12px 14px; font-size: 0.82em; }
+}
+</style>
+</head>
+<body>
+
+    <div class="page-header">
+        <h1>📡 RTC 实时互动洞察中心</h1>
+        <div class="subtitle">腾讯实时互动 · 出海趋势追踪 · 周报月报一站式浏览</div>
+        <div class="meta">
+            <span class="meta-item">📅 2 个报告周期</span>
+            <span class="meta-item">📄 74 篇文章</span>
+            <span class="meta-item">📱 20 个 App</span>
+            <span class="meta-item">🕐 2026-03-15 22:51</span>
+        </div>
+    </div>
+    <div class="tab-nav"><button class="tab-btn active" data-tab="tab-weekly-0" onclick="switchTab('tab-weekly-0')">📡 周报 2026-03-08_2026-03-15</button><button class="tab-btn" data-tab="tab-weekly-1" onclick="switchTab('tab-weekly-1')">📡 周报 2026-03-01_2026-03-07</button></div><div id="tab-weekly-0" class="tab-content active">
+
+    <div class="page-header">
+        <h1>📡 RTC 实时互动洞察周报</h1>
+        <div class="subtitle">腾讯实时互动 · 出海趋势追踪</div>
+        <div class="meta">
+            <span class="meta-item">📄 32 篇文章</span>
+            <span class="meta-item">📡 5 条 RTC 洞察</span>
+            <span class="meta-item">📱 9 个新 App</span>
+            <span class="meta-item">📈 8 条趋势信号</span>
+        </div>
+        <div class="period">2026-03-08 ~ 2026-03-15</div>
+    </div>
+    <div class="container">
+    <div class="stats-row"><div class="stat-card">
+        <div class="number">32</div>
+        <div class="label">分析文章数</div>
+    </div><div class="stat-card rtc-highlight">
+        <div class="number">5</div>
+        <div class="label">RTC 洞察</div>
+    </div><div class="stat-card">
+        <div class="number">9</div>
+        <div class="label">新发现 App</div>
+    </div><div class="stat-card">
+        <div class="number">8</div>
+        <div class="label">趋势信号</div>
+    </div><div class="stat-card rtc-highlight">
+        <div class="number">2</div>
+        <div class="label">紧急商机</div>
+    </div></div><div class="tldr-box"><div class="tldr-title">⚡ 本周速览 TL;DR</div><div class="tldr-item"><span class="arrow">→</span><span>欢聚集团(JOYY)直播业务连续三季度增长，AI虚拟礼物渗透率突破30%，验证了AI+实时互动的商业变现路径</span></div><div class="tldr-item"><span class="arrow">→</span><span>Yalla Group付费用户同比下滑15.4%但MAU创新高，中东泛娱乐市场正从'付费驱动'转向'规模+效率'模式，语聊房变现模型面临重构</span></div><div class="tldr-item"><span class="arrow">→</span><span>腾讯秘密启动微信AI智能体项目，Q3面向全体用户推出——这将彻底改变IM内的交互范式，对TRTC的音视频调用场景产生深远影响</span></div><div class="tldr-item"><span class="arrow">→</span><span>AI语音输入法赛道爆发（Wispr Flow估值7亿美元），语音交互正从'输入工具'升级为'意图理解层'，对RTC语音处理链路提出新要求</span></div><div class="tldr-item"><span class="arrow">→</span><span>OpenClaw(小龙虾)智能体全民爆发，腾讯WorkBuddy上线对齐——AI Agent嵌入IM群聊成为新范式，群聊场景从'人对人'进化为'人+Agent'混合协作</span></div><div class="tldr-item"><span class="arrow">→</span><span>a16z第6期AI Top50榜单显示AI产品格局趋于稳定，CapCut年流水破10亿美元成唯一双端上榜视频产品，AI视频编辑赛道进入寡头期</span></div><div class="tldr-item"><span class="arrow">→</span><span>AI短剧《神·笔》播放量破亿，AI影视制作渗透率达80-90%——AI生成视频内容正在从技术demo走向商业化量产，对实时渲染和流媒体分发提出新需求</span></div><div class="tldr-item"><span class="arrow">→</span><span>土耳其游戏融资持续火热但趋于理性，Dream Games获25亿美元融资创纪录——休闲游戏出海团队的实时互动需求(语音组队、直播互动)值得关注</span></div></div><div class="section"><div class="section-title"><span class="icon">📱</span> 客户列表 · App 发现沉淀</div><p style="font-size:0.85em;color:var(--text2);margin-bottom:16px;">按 RTC 相关度排序 · <span style="color:var(--cyan);">■</span> RTC 强相关 · <span class="new-badge" style="position:static;display:inline-block;background:linear-gradient(135deg,#e17055,#fd79a8);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;">NEW</span> 本周新发现</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;"><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">WorkBuddy<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></div>
+        <div class="app-desc">腾讯全场景AI智能体，1分钟连接企微，对标OpenClaw</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 直接嵌入企业微信群聊，作为AI Agent参与IM交互——如果集成音视频能力（如Agent自动发起/加入会议），将成为IM+RTC+AI融合场景的标杆</span><br>🌍 全球<br>📊 3月9日上线，从下载到连接企微最快1分钟</div>
+    </div><div class="app-card">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Hatch Sleep<span class="rtc-score score-medium">RTC 关联</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></div>
+        <div class="app-desc">助眠智能灯具配套App，通过灯光+白噪音构建'睡眠仪式感'</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 助眠音效的实时播放和设备远程控制场景与低延迟音频流传输相关；如果未来扩展社区功能（如冥想直播、助眠语音房），将直接需要RTC能力</span><br>🌍 北美<br>📊 月流水稳定300万美元左右，新品Restore 3售价170美元</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">Typeless<span class="rtc-score score-medium">RTC 关联</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></div>
+        <div class="app-desc">AI语音输入法，华人开发，Product Hunt霸榜，直接取消打字键盘</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 核心技术是实时语音识别+AI意图理解，与RTC的语音处理、实时转写、智能降噪技术同源</span><br>🌍 全球<br>📊 Product Hunt连日排行榜前列，用户实测每分钟155字输入</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">GPTZero<span class="rtc-score score-medium">RTC 关联</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></div>
+        <div class="app-desc">AI检测工具→写作辅助平台转型，华人创立</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 低，纯文本分析工具，无直接RTC需求</span><br>🌍 北美<br>📊 ARR 2400万美元（不到一年营收翻番），从AI检测转型为写作辅助平台</div>
+    </div><div class="app-card">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Little Language Lessons<span class="rtc-score score-medium">RTC 关联</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></div>
+        <div class="app-desc">Google AI Labs实验项目，拍照+场景化AI语言学习</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 中等——如果集成实时对话练习功能（AI语伴），将需要实时语音识别和AI对话的RTC能力</span><br>🌍 全球<br>📊 Google AI Labs测试项目，支持16种语言，课程生成仅需10秒</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">Cal AI <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></div>
+        <div class="app-desc">拍照算热量AI健康App，由高中生创业，被MyFitnessPal收购</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 低，图像识别为主；但如果扩展健康社区（运动直播、饮食打卡语音房），可能需要RTC</span><br>🌍 全球<br>📊 下载1500万，ARR 5000万美元，创始人19岁在校大学生</div>
+    </div><div class="app-card">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Wispr Flow <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></div>
+        <div class="app-desc">AI语音输入工具，比打字快4倍以上</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 语音识别和实时AI处理能力与RTC语音链路同源技术，可能成为RTC SDK的语音AI模块供应商或竞争对手</span><br>🌍 北美<br>📊 融资8100万美元，估值7亿美元</div>
+    </div><div class="app-card">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Seede AI / Veeso AI <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></div>
+        <div class="app-desc">AI图文设计工具，生成可编辑设计源文件而非图片，0投放6个月获10万用户</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 如果扩展实时协作编辑功能（多人同时设计、实时预览同步），将需要RTC的实时数据同步能力</span><br>🌍 东南亚、全球<br>📊 0投放6个月积累10万用户</div>
+    </div><div class="app-card">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Starla <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></div>
+        <div class="app-desc">AI占星产品，靠'Soulmate画像'社媒爆火，从美国复制到东南亚</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 如果加入AI视频占星、1v1视频咨询等功能，将需要实时音视频通话能力</span><br>🌍 东南亚<br>📊 曾在美国月入200万美元，目前在新兴市场月入20万美元（超百万人民币）</div>
+    </div></div></div><div class="section"><div class="section-title"><span class="icon">📡</span> RTC 实时互动洞察</div><div class="insight-card rtc-related">
+        <h3>Bigo Live的AI互动礼物验证了'AI+RTC'的变现公式——但腾讯在这条路上落后了<span class="rtc-badge">RTC</span></h3>
+        <div><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 RTC音视频</span> <span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 AI+实时互动</span></div>
+        <div class="body">欢聚集团2025年Q4财报揭示了一个被低估的趋势：AI正在直接驱动直播收入增长。Bigo Live的AI生成虚拟礼物渗透率在1月突破30%，意味着用户送出的每3份礼物中就有1份由AI生成；AI多模态推荐系统使用户观看时长环比提升5.6%，北美新用户有效观看率环比提升10.3%，30日留存提升4.8%。这些数据指向一个清晰结论：AI不是直播的装饰品，而是直播变现链路的核心驱动力。
+
+从RTC技术视角看，AI虚拟礼物的本质是'实时AI渲染+低延迟分发'——用户触发后，需要在毫秒级内完成AI生成、渲染、推流到接收端显示的完整链路。这对RTC SDK的实时AI推理能力、渲染管线、端侧性能优化提出了新要求。欢聚的数据证明这条路能赚钱，但腾讯云音视频在'AI+直播互动'场景的产品化能力尚未形成差异化优势。更值得警惕的是，Bigo Live在北美区域推出全程直播真人秀节目拉动自然日活增长3%，说明内容形态创新+AI能力正在构建护城河。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 AI互动礼物是直播变现的下一个标配能力，谁先把它做成SDK级产品谁就能吃到这波红利</span><span class="meta-item opportunity">🎯 将AI实时互动礼物能力打包为TRTC SDK的增值模块，面向海外直播平台客户提供'AI互动礼物生成+实时渲染+推流'一站式方案</span><span class="meta-item risk">⚠️ 欢聚在自有平台已跑通闭环，如果将BIGO Ads+AI互动能力打包对外输出SaaS，将直接与TRTC的ToB业务竞争</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 营收回归增长，广告技术业务打开中长期想象空间｜欢聚财报解读</div>
+    </div><div class="insight-card rtc-related">
+        <h3>中东语聊房的'增长悖论'：MAU创新高但付费用户加速流失，Yalla的困境是整个赛道的预警<span class="rtc-badge">RTC</span></h3>
+        <div><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 IM即时通讯</span></div>
+        <div class="body">Yalla Group的2025年财报暴露了中东泛娱乐赛道一个结构性问题：Q4 MAU刷新4480万历史新高，但付费用户却降至1040万（同比-15.4%），这意味着平台正在变成一个'免费用户占领但付费意愿衰退'的局面。Yalla Q4社交业务收入同比下滑10%，游戏业务收入自6个季度以来首次低于3000万美元。公司不得不通过'降本'而非'增收'来维持41.2%的净利润率。
+
+这对TRTC的中东客户有直接影响。Yalla的核心产品就是语聊房——依赖RTC语音通话能力的场景。当付费用户萎缩，平台会压缩SDK采购成本或寻找更低价的供应商。更重要的是，Yalla正在将赌注押在电竞赛事（成为2026年沙特电竞联赛官方合作伙伴），试图通过'游戏+社交+电竞直播'的三角形模型重新激活付费。这意味着中东市场的RTC需求正在从单纯的语聊房向'电竞直播+实时互动+社交'的复合场景迁移，TRTC需要提前布局。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 中东语聊房的付费天花板已经显现，下一个增长点是'电竞社交'——需要同时具备低延迟直播、多人语音、实时互动的复合RTC能力</span><span class="meta-item opportunity">🎯 针对中东市场推出'电竞社交'场景的RTC解决方案包，整合赛事直播+多人语音房+实时弹幕互动能力，提前卡位Yalla等客户的转型需求</span><span class="meta-item risk">⚠️ 如果中东泛娱乐平台集体进入'降本增效'周期，TRTC可能面临客户预算缩减和价格战压力</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 海外的泛娱乐市场，付费用户越来越难找了 | Yalla财报解读</div>
+    </div><div class="insight-card">
+        <h3>微信AI智能体+OpenClaw引爆'Agent入群'新范式——IM群聊正在从'人对人'进化为'人+AI Agent'混合体</h3>
+        <div><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 IM即时通讯</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 AI+实时互动</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></div>
+        <div class="body">本周最值得关注的趋势不是某个产品的增长数据，而是一个范式级别的变化：AI Agent正在以'群成员'身份嵌入即时通讯场景。腾讯秘密启动微信AI智能体项目（计划Q3推出，以对话形式接入小程序完成叫车、外卖等任务）；OpenClaw在中国爆发式增长，QQ官方开放接入（1个实名号最多5个机器人）；腾讯WorkBuddy上线，1分钟连接企微；Meta收购Moltbook（OpenClaw专属社交网络，Agent可以像人一样发帖、评论、互动）。
+
+这对RTC/IM基础设施的影响是深层的：(1)当群聊中有AI Agent参与，消息系统需要区分'人的消息'和'Agent的消息'，信令协议、消息路由、存储策略都需要适配；(2)Agent可能触发音视频调用——比如用户让AI Agent帮忙发起视频会议、接入直播间、转写语音消息，这把IM和RTC的边界模糊化了；(3)Token消耗成为新的成本变量——文章提到有人'跑一天OpenClaw花5000万Token'，这意味着在IM场景中嵌入Agent的成本可能远超传统消息流。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 2026年将是'Agent嵌入IM'的元年，IM/RTC SDK需要从'连接人与人'升级为'连接人与Agent'的基础设施</span><span class="meta-item opportunity">🎯 在TRTC/IM SDK中增加Agent适配层：Agent身份标识、Agent触发音视频通话、Agent语音消息实时转写等能力，让客户能快速在自己的App中集成AI Agent</span><span class="meta-item risk">⚠️ 如果微信直接将AI Agent+小程序的能力闭环在自己生态内，第三方IM/RTC的市场空间会被进一步挤压</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 传腾讯秘密启动微信AI智能体项目；加拿大正式撤销关闭TikTok当地业务的决定；Meta收购OpenClaw专属社交网络Moltbook丨扬帆晚报、腾讯彻底“虾”化，地区官方砸百万元补贴，这只龙虾究竟引爆了什么？、中国互联网出海一周头条 我们一起看真相聊大事儿 | 白鲸出品400期</div>
+    </div><div class="insight-card">
+        <h3>AI语音输入从'工具'变'入口'——语音交互范式的变革将重新定义RTC语音处理链路</h3>
+        <div><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 RTC音视频</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 AI+实时互动</span></div>
+        <div class="body">AI语音输入法赛道在本周被集中报道：Wispr Flow融资8100万美元估值7亿，Typeless在Product Hunt霸榜，搜狗称日均语音使用近20亿次，智谱、豆包、闪电说等玩家扎堆。文章作者亲身验证：从打字切换到语音输入仅用一周，53分钟完成5500字初稿，每分钟155字（远超打字冠军的175字），节省2.5小时。
+
+表面看这是输入法赛道的故事，但深层影响直指RTC：(1)AI语音输入的核心能力是'语音→意图理解→结构化文本'，这与RTC中的实时语音转写、智能降噪、语音指令识别是同源技术。当用户习惯了'对着说话就能输出高质量文本'后，他们在视频会议、直播间、语聊房中也会期待同等体验——实时字幕、智能摘要、语音指令控制；(2)文章特别提到，新一代语音输入法'直接取消了打字键盘，语音键提拔到C位'，这意味着语音正在从辅助输入变为主输入通道。对RTC来说，语音质量（降噪、回声消除、带宽自适应）的重要性将进一步提升。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 AI语音输入的普及正在重塑用户对'语音交互'的预期，RTC SDK需要在语音处理链路中内置AI理解能力而不仅仅是传输能力</span><span class="meta-item opportunity">🎯 将AI语音理解能力（实时转写、意图识别、多语言翻译）打包为TRTC的增值AI模块，帮助客户在视频会议/直播/语聊房中实现'智能语音'体验</span><span class="meta-item risk">⚠️ 语音AI能力正在被输入法厂商（搜狗、豆包）和垂直玩家（Wispr、Typeless）快速商品化，RTC厂商如果不及时跟进，这层能力会被他们截流</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 AI语音输入法，人类进入“不打字”时代</div>
+    </div><div class="insight-card">
+        <h3>AI短剧破亿播放量+CapCut年流水破10亿——AI视频内容的'生成-编辑-分发'链路正在成形，实时渲染成为瓶颈</h3>
+        <div><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 RTC音视频</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 AI+实时互动</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 短剧&amp;内容</span></div>
+        <div class="body">两条看似不相关的信息拼在一起，揭示了一个重要趋势：AI短剧《神·笔》春节播放量破亿，核心环节AI渗透率80-90%（从剧本、场景生成到后期制作）；与此同时，a16z榜单显示CapCut移动端MAU排名仅次于ChatGPT，2025年全球年流水首次突破10亿美元。爱诗科技完成3亿美元C轮融资（亚洲AI视频生成领域最大单次融资）。
+
+这条链路正在闭合：AI生成原始素材（爱诗科技等）→AI编辑加工（CapCut等）→分发平台（芒果TV、TikTok等）。从RTC视角看，当AI视频内容从'单机生成'走向'实时协作生成'（多人同时编辑AI视频、实时预览渲染效果、直播中实时生成互动内容），对实时音视频传输的带宽和延迟提出了极高要求。特别是在直播场景中，'AI实时生成+低延迟推流'的能力将成为差异化竞争力。文章提到Bigo Live的AI互动礼物渗透率突破30%，这就是AI实时渲染在直播中的一个早期应用。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 AI视频内容的量产化将催生'实时AI渲染+低延迟分发'的新RTC需求，这是一个正在打开的蓝海市场</span><span class="meta-item opportunity">🎯 推出面向AI视频内容创作者的'实时协作渲染'解决方案——多人同时编辑AI视频时的低延迟同步、实时预览和推流</span><span class="meta-item risk">⚠️ CapCut（字节）正在构建从AI生成到编辑到分发的闭环，如果字节把这层能力内化到自己的云服务中，对TRTC在视频创作场景的机会构成威胁</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 a16z又发榜了，这一次，字节成最大赢家？、36氪出海·AI｜和刘慈欣的AI短剧收视破亿，但他说未来不再有科幻小说：对话陈楸帆、谷歌完成320亿美元收购Wiz；TikTok Shop计划进军韩国市场；爱诗科技完成3亿美元C轮融资丨扬帆晚报</div>
+    </div></div><div class="section"><div class="section-title"><span class="icon">📈</span> 趋势信号</div><h4 style="font-size:14px;color:var(--text2);margin:16px 0 8px;">🟢 升温趋势</h4><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>AI互动能力正在成为直播平台的核心变现引擎</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">Bigo Live AI虚拟礼物渗透率1月突破30%（占整体虚拟礼物消耗），AI推荐系统使北美新用户有效观看率环比+10.3%，用户观看时长环比+5.6%</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>AI语音交互从辅助工具升级为主输入通道</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">Wispr Flow融资8100万美元估值7亿；搜狗日均语音使用近20亿次；Typeless用户实测每分钟155字（打字冠军175字）；新一代产品直接取消打字键盘，语音键C位</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>AI视频内容从技术demo走向商业化量产</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">AI短剧《神·笔》播放量破亿，AI渗透率80-90%；CapCut 2025年全球年流水破10亿美元；爱诗科技3亿美元C轮创亚洲AI视频生成融资纪录</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>腾讯云海外扩张加速，音视频+AI出海能力被重点提及</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">腾讯云MWC宣布法兰克福新增可用区（增至3个），混元3D加速出海，海外客户规模2025年同比翻番，过去三年开区速度排中国云厂商前列</div>
+        </div>
+    </div><h4 style="font-size:14px;color:var(--text2);margin:16px 0 8px;">🟡 新兴趋势</h4><div class="trend-signal">
+        <span class="direction emerging">★</span>
+        <div>
+            <div><strong>AI Agent嵌入IM/群聊成为行业共识</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">腾讯微信AI智能体计划Q3推出；QQ开放OpenClaw接入（1个号最多5个机器人）；腾讯WorkBuddy上线；Meta收购Moltbook（Agent社交网络）；深圳龙岗发布'龙虾十条'；无锡高新区12条养虾政策单项最高500万</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction emerging">★</span>
+        <div>
+            <div><strong>土耳其休闲游戏融资持续活跃但趋于理性</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">2025年3月-2026年2月土耳其10家游戏企业12笔融资；Dream Games以25亿美元融资创纪录；Loom Games估值达10亿美元；交易数量从前一个半年的8笔降至全年12笔</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction emerging">★</span>
+        <div>
+            <div><strong>AI对传统行业的颠覆被量化，社交和直播被判定为'已稳固'象限</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">Moloco+BCG联合报告：社媒、流媒体位于'已稳固'象限（用户信任度高、AI替代风险低）；游戏位于'未设防'象限（AI替代风险低但客户忠诚度不足）；教育位于'已失守'象限</div>
+        </div>
+    </div><h4 style="font-size:14px;color:var(--text2);margin:16px 0 8px;">🔴 降温趋势</h4><div class="trend-signal">
+        <span class="direction falling">↓</span>
+        <div>
+            <div><strong>中东泛娱乐市场付费用户持续萎缩，平台被迫向电竞和广告转型</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">Yalla Q4付费用户1040万同比-15.4%，社交收入同比-10%，游戏收入6季度来首次低于3000万美元；Yalla转向成为2026年沙特电竞联赛官方合作伙伴</div>
+        </div>
+    </div></div><div class="section"><div class="section-title"><span class="icon">💰</span> 商机线索</div><div class="biz-opp high">
+        <h4><span style="color:var(--red);font-size:11px;font-weight:600;">[紧急]</span> AI互动礼物SDK——把Bigo Live验证的变现模型产品化 · 🌍 全球（特别是东南亚、中东的中小直播平台）</h4>
+        <div class="desc">欢聚Bigo Live的AI虚拟礼物渗透率突破30%，证明了'AI生成+实时渲染+礼物打赏'的变现路径可行。将这种能力抽象为SDK级产品（AI互动礼物生成引擎+实时渲染+推流方案），面向海外中小直播平台销售。这些平台没有Bigo的AI团队，但有同样的变现需求。</div>
+        <div class="actions"><div class="action-item">调研Bigo Live AI互动礼物的技术实现路径（端侧渲染还是云端渲染、AI生成模型类型）</div><div class="action-item">联系TRTC现有直播客户（如中东、东南亚的泛娱乐平台），做需求验证</div><div class="action-item">设计'AI互动礼物SDK'产品原型：AI生成→实时渲染→推流三段式架构</div><div class="action-item">在Q2推出beta版本，Q3正式商业化</div></div>
+    </div><div class="biz-opp high">
+        <h4><span style="color:var(--red);font-size:11px;font-weight:600;">[紧急]</span> IM Agent适配层——让客户的App快速集成AI智能体 · 🌍 全球</h4>
+        <div class="desc">微信AI智能体、OpenClaw、WorkBuddy三线并进，AI Agent嵌入群聊已成不可逆趋势。TRTC的IM SDK应该抢先推出'Agent适配层'：支持Agent身份注册、Agent消息类型标识、Agent触发音视频调用、Agent语音消息实时转写等能力。这将是IM SDK的差异化卖点，因为绝大多数竞品还在做传统人对人通讯。</div>
+        <div class="actions"><div class="action-item">分析OpenClaw与IM系统的集成架构（消息协议、Agent状态管理、多模态交互）</div><div class="action-item">在腾讯云IM SDK中新增Agent身份类型和Agent消息处理链路</div><div class="action-item">设计Agent触发RTC调用的API（如Agent帮用户发起视频会议、Agent加入语音房旁听/记录）</div><div class="action-item">撰写技术白皮书'AI Agent时代的IM基础设施'，在Q2 MWC/Developer Day发布</div></div>
+    </div><div class="biz-opp medium">
+        <h4><span style="color:var(--orange);font-size:11px;font-weight:600;">[中等]</span> 中东电竞社交场景——卡位Yalla等客户的转型需求 · 🌍 中东、南亚</h4>
+        <div class="desc">Yalla的财报信号明确：语聊房付费见顶，转向电竞社交。中东有2026年沙特电竞联赛等大型赛事。TRTC应该推出面向中东电竞社交场景的打包方案：赛事直播（超低延迟推流）+ 多人语音组队（8人以上同时语音）+ 实时弹幕互动 + 赛事回放系统。</div>
+        <div class="actions"><div class="action-item">与Yalla Group BD团队建立联系，了解其电竞社交场景的具体RTC需求</div><div class="action-item">调研2026年沙特电竞联赛的技术架构和供应商选型情况</div><div class="action-item">设计'电竞社交'场景方案包：赛事直播+多人语音+弹幕互动+录制回放</div><div class="action-item">在中东市场Developer Meetup上做方案宣讲</div></div>
+    </div><div class="biz-opp medium">
+        <h4><span style="color:var(--orange);font-size:11px;font-weight:600;">[中等]</span> AI语音增强模块——将语音AI能力嵌入RTC SDK · 🌍 全球</h4>
+        <div class="desc">AI语音输入法的爆发（Wispr Flow估值7亿、搜狗日均20亿次、多家创业公司涌入）证明用户对'智能语音'的需求已经被激活。TRTC可以借这波浪潮，在RTC SDK中内置AI语音增强模块：实时降噪+AI转写+意图理解+多语言翻译，让客户的视频会议/直播/语聊房也能拥有'AI语音输入法级别'的智能语音体验。</div>
+        <div class="actions"><div class="action-item">评估将腾讯混元语音模型集成到TRTC SDK的技术可行性和延迟影响</div><div class="action-item">设计'AI语音增强'API：包括实时转写、智能降噪、语音意图识别、多语言同声翻译</div><div class="action-item">与TRTC现有视频会议客户做需求验证（如海外远程办公平台）</div><div class="action-item">在Q3前推出AI语音增强模块的技术预览版</div></div>
+    </div></div><div class="section"><div class="section-title"><span class="icon">📰</span> 文章分类总览</div><table class="data-table"><thead><tr><th>文章</th><th>赛道</th><th>RTC 关联</th><th>摘要</th></tr></thead><tbody><tr>
+                <td style="max-width:300px;"><strong>营收回归增长，广告技术业务打开中长期想象空间｜欢聚财报解读</strong></td>
+                <td><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">欢聚2025年营收21.25亿美元扭亏为盈，AI虚拟礼物渗透率突破30%，BIGO Ads同比增长38.5%成第二增长曲线</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>传腾讯秘密启动微信AI智能体项目；加拿大正式撤销关闭TikTok当地业务的决定；Meta收购OpenClaw专属社交网络Moltbook丨扬帆晚报</strong></td>
+                <td><span class="tag tag-rtc" style="background:#0984e3;color:#0f1117;">💬 IM 即时通讯</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">腾讯微信AI智能体Q3推出，以对话形式接入小程序；Meta收购Agent社交网络Moltbook；百度发布零部署OpenClaw服务DuClaw</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>海外的泛娱乐市场，付费用户越来越难找了 | Yalla财报解读</strong></td>
+                <td><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag tag-rtc" style="background:#0984e3;color:#0f1117;">💬 IM 即时通讯</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">Yalla 2025年流水3.42亿美元，Q4付费用户同比-15.4%但MAU创新高4480万，转向电竞社交寻找增长</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>腾讯彻底“虾”化，地区官方砸百万元补贴，这只龙虾究竟引爆了什么？</strong></td>
+                <td><span class="tag tag-rtc" style="background:#0984e3;color:#0f1117;">💬 IM 即时通讯</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">OpenClaw全民爆发，腾讯WorkBuddy上线对齐，小米miclaw首发移动端Agent；深圳'龙虾十条'+无锡12条政策，单项最高500万</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>阿里云登陆MWC，支持众多中国企业出海/SHEIN在欧盟月活用户达1.56亿</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span> <span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">腾讯云MWC新增法兰克福可用区，混元3D加速出海，海外客户2025年同比翻番；SHEIN欧盟月活1.56亿；阿里云推企业级Agent AI平台</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>AI语音输入法，人类进入“不打字”时代</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">AI语音输入法赛道爆发，Wispr Flow估值7亿美元，用户输入速度达每分钟155字，语音正从辅助变为主输入通道</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>谷歌完成320亿美元收购Wiz；TikTok Shop计划进军韩国市场；爱诗科技完成3亿美元C轮融资丨扬帆晚报</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">爱诗科技3亿美元C轮创亚洲AI视频生成融资纪录；TikTok Shop计划Q3进军韩国</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>AI加速重塑市场，6大热门行业失守，机会仍在？</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">Moloco+BCG报告量化AI颠覆指数：社媒/流媒体'已稳固'，游戏'未设防'，教育'已失守'，AI对买量效率影响大于开发</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>a16z又发榜了，这一次，字节成最大赢家？</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">a16z第6期AI Top50：CapCut移动端MAU仅次ChatGPT，年流水破10亿美元；图像视频品类占44%；AI产品格局趋于稳定</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>走区别于「多邻国」的实战派路线，Google测试由AI驱动的多语言小课程</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">Google AI Labs发布Little Language Lessons实验项目，拍照+场景化AI语言学习，支持16种语言，课程生成仅需10秒</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·AI｜和刘慈欣的AI短剧收视破亿，但他说未来不再有科幻小说：对话陈楸帆</strong></td>
+                <td><span class="tag" style="background:#fd79a820;color:#fd79a8;border:1px solid #fd79a840;">🎬 短剧 &amp; 内容</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">AI短剧《神·笔》播放量破亿，核心环节AI渗透率80-90%，芒果TV VIP付费模式；陈楸帆认为科幻创作已失效</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>中国互联网出海一周头条 | 白鲸出品400期</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">周报汇总：Cal AI被MyFitnessPal收购（ARR 5000万美元）、OpenClaw中国爆发速度远超硅谷、MiniMax上市首份财报营收增长159%</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>打造入睡仪式感，App月入300万美元？</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Hatch凭借'灯光+白噪音'智能灯具，月流水300万美元，从婴儿助眠切入成人市场，强调仪式感而非技术</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>离开 Founder Park，他决定用「内容逻辑」重新定义设计</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">AI设计产品Seede AI/Veeso AI以'可编辑设计源文件'为核心，0投放6个月获10万用户</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>势头不减，土耳其融资热潮持续近两年</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">土耳其游戏12个月12笔融资，Dream Games获25亿美元创纪录，投资趋于理性聚焦头部</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>女性成为健康监测硬件最活跃用户群？Whoop、Oura接连布局</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Whoop女性用户同比增长150%，推出经期荷尔蒙分析服务，Oura发布女性健康AI模型</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>乐信圣文的麻将消除冲进Top 4，堆叠消除新品跻身增长榜Top 12 | 2月全球手游下载榜</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">2月全球手游下载榜：快乐爱消除2430万下载蝉联冠军，Vita Mahjong升至第4（累计下载2亿），Rainbow Six Mobile上线即登顶</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>“种花送花”游戏成出海新宠；北京厂商推新合成产品；贪玩、紫龙、易幻携新游冲榜丨2月榜单解读</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">2月出海手游增长榜16款新品，小游戏出海常态化，Cell Survivor 2月流水6761万元（日本贡献60%）</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>“龙虾”创始人将加入OpenAI；泡泡玛特将在美国加州开设总部；魔法原子完成新一轮5亿元融资丨扬帆晚报</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">OpenClaw创始人加入OpenAI；泡泡玛特美国总部选址加州；灵初智能天使+Pre-A轮约20亿元</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>屡被质疑的AI检测赛道，华人创业者把产品做到2400万美元ARR</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">GPTZero ARR 2400万美元不到一年翻番，从AI检测工具转型为写作辅助平台，发现NeurIPS 2025论文中100处虚假引用</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>金帆再启，荣耀同行 | 2026年H1金帆奖申报计划正式启动！</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">扬帆出海2026年H1金帆奖申报启动，截止4月10日</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·行业｜“十五五”医药出海新格局</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">医药出海新政策，获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>AI for Growth，PAGC 2026全面升级！</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">PAGC 2026展会5月27-28日广州举办，聚焦AI+出海，首届全球AI增长大会</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·全球化公司｜当中国连锁走向世界，商米开始下一场远征</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·专访｜赴日谈：在日本做机器人，奇勃科技的一场反直觉硬仗</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>【活动报名】Connects深圳内容出海沙龙</strong></td>
+                <td><span class="tag" style="background:#fd79a820;color:#fd79a8;border:1px solid #fd79a840;">🎬 短剧 &amp; 内容</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">内容出海沙龙3月25日深圳，聚焦短剧、AI动态漫、小说出海</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>迪拜商业论坛·中国5月落地深圳</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·行业｜医疗健康产业出海——创新药篇（中）</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>「Pixel Flow!」像素级仿品被起诉后下架，混休也不能随意“换皮”</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">土耳其Loom Games起诉两被告换皮其热门游戏Pixel Flow!，休闲游戏版权争议加剧</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>腾讯拟加入派拉蒙收购华纳兄弟交易；网易停止资助名越稔洋工作室</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·活动｜中日联结Japan Jo!nting</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>扬帆每周合作精选No.196</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">获取全文失败</td>
+            </tr></tbody></table></div>
+    <div class="page-footer">
+        RTC 实时互动洞察追踪系统 · 生成时间: 2026-03-15 22:41 · Powered by Claude AI
+    </div>
+    </div>
+</div><div id="tab-weekly-1" class="tab-content">
+
+    <div class="page-header">
+        <h1>📡 RTC 实时互动洞察周报</h1>
+        <div class="subtitle">腾讯实时互动 · 出海趋势追踪</div>
+        <div class="meta">
+            <span class="meta-item">📄 42 篇文章</span>
+            <span class="meta-item">📡 4 条 RTC 洞察</span>
+            <span class="meta-item">📱 12 个新 App</span>
+            <span class="meta-item">📈 8 条趋势信号</span>
+        </div>
+        <div class="period">2026-03-01 ~ 2026-03-07</div>
+    </div>
+    <div class="container">
+    <div class="stats-row"><div class="stat-card">
+        <div class="number">42</div>
+        <div class="label">分析文章数</div>
+    </div><div class="stat-card rtc-highlight">
+        <div class="number">4</div>
+        <div class="label">RTC 洞察</div>
+    </div><div class="stat-card">
+        <div class="number">12</div>
+        <div class="label">新发现 App</div>
+    </div><div class="stat-card">
+        <div class="number">8</div>
+        <div class="label">趋势信号</div>
+    </div><div class="stat-card rtc-highlight">
+        <div class="number">2</div>
+        <div class="label">紧急商机</div>
+    </div></div><div class="tldr-box"><div class="tldr-title">⚡ 本周速览 TL;DR</div><div class="tldr-item"><span class="arrow">→</span><span>【互动娱乐】苹果一夜下架百余款出海社交App（含Joi、Coco、Monkey Run等随机视频聊天产品），陌生人实时视频社交赛道面临合规洗牌，对具备内容审核能力的RTC SDK是利好</span></div><div class="tldr-item"><span class="arrow">→</span><span>【AI + 实时互动】AI社交产品Elys内测刷屏，邀请码闲鱼炒到100元，&quot;赛博分身&quot;做预社交的范式创新，预示AI+社交将大量需要IM和实时互动基建</span></div><div class="tldr-item"><span class="arrow">→</span><span>【互动娱乐】氧气语音官宣张韶涵代言，&quot;氧气明星季&quot;总投入超亿元，语聊房赛道头部玩家加码品牌投入，行业从野蛮生长进入品牌化竞争</span></div><div class="tldr-item"><span class="arrow">→</span><span>【AI 工具 &amp; 效率】OpenClaw在中国发酵速度远超硅谷，字节/阿里/腾讯集体上线Agent云服务，AI Agent生态爆发将催生大量实时通信需求（群聊接入/语音交互）</span></div><div class="tldr-item"><span class="arrow">→</span><span>【社交泛娱乐】中东局势升级导致美团Keeta暂停部分中东服务，霍尔木兹海峡停滞、多国领空关闭，出海企业需重新评估中东市场RTC基础设施部署</span></div><div class="tldr-item"><span class="arrow">→</span><span>【电商/跨境】谷歌Play全球下调开发者服务费至20%（新用户安装），开放第三方支付和第三方应用商店，降低App分发成本利好出海社交/泛娱乐开发者</span></div><div class="tldr-item"><span class="arrow">→</span><span>【AI 工具 &amp; 效率】MiniMax上市首份财报：年收入7904万美元同比增158.9%，海外收入占73%，Talkie AI社交产品是核心增长引擎，验证AI社交出海商业模式</span></div><div class="tldr-item"><span class="arrow">→</span><span>【社交泛娱乐】Starla的&quot;Soulmate画像&quot;梗从美国迁移到东南亚，Amora在印尼月入20万美元，证明社交玩法有跨市场复制潜力</span></div></div><div class="section"><div class="section-title"><span class="icon">📱</span> 客户列表 · App 发现沉淀</div><p style="font-size:0.85em;color:var(--text2);margin-bottom:16px;">按 RTC 相关度排序 · <span style="color:var(--cyan);">■</span> RTC 强相关 · <span class="new-badge" style="position:static;display:inline-block;background:linear-gradient(135deg,#e17055,#fd79a8);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;">NEW</span> 本周新发现</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;"><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Elys<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></div>
+        <div class="app-desc">AI社交产品，用赛博分身替用户做预社交（评论、连接、匹配），用户只负责确认和校准</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 高度相关：AI分身间通信需要IM消息通道，未来人-AI匹配后的实时对话需要语音/视频RTC能力</span><br>🌍 中国（内测阶段），计划出海<br>📊 邀请码闲鱼炒到100元，单用户日使用10小时，产品刷屏级传播</div>
+    </div><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Joi<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span></div>
+        <div class="app-desc">陌生人即时匹配+随机视频聊天App，广告+会员+虚拟礼物变现</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 核心依赖RTC：1v1随机视频聊天是核心功能，需要低延迟视频通话SDK</span><br>🌍 美国（84%收入来源）<br>📊 近30天全球下载超6.36万，收入259.21万美元，被苹果下架</div>
+    </div><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">氧气语音<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span></div>
+        <div class="app-desc">语聊房平台，十年运营，主打语音社交和直播互动</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 核心依赖RTC：语聊房、直播连麦、语音社交均需要实时音频SDK</span><br>🌍 中国<br>📊 签约张韶涵代言费数千万，明星季总投入超亿元，十年稳定运营</div>
+    </div><div class="app-card rtc-app">
+        
+        <div class="app-name">OpenClaw<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></div>
+        <div class="app-desc">开源AI Agent工具，让AI接管电脑操控鼠标、点击、填写表单，已接入QQ群聊</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 高度相关：接入QQ/微信群聊需要IM消息通道，后续Agent语音交互需要RTC语音能力</span><br>🌍 全球（中国增速远超硅谷）<br>📊 GitHub星标21万+，字节/阿里/腾讯三大云集体上线，QQ开放1个号最多5个机器人</div>
+    </div><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">MiniMax/Talkie<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></div>
+        <div class="app-desc">AI大模型公司，旗下Talkie是AI角色社交产品（海外版星野）</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 高度相关：Talkie的AI角色互动涉及文字IM、AI语音对话，可能需要实时语音流式处理</span><br>🌍 全球（海外收入占73%）<br>📊 年收入7904万美元同比增158.9%，ARR已超1.5亿美元，港股上市</div>
+    </div><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">捏Ta<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></div>
+        <div class="app-desc">AI原生社区，让用户创建和互动AI角色</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 高度相关：AI角色互动涉及文字IM、未来可能接入AI语音对话</span><br>🌍 中国/全球<br>📊 完成超千万美元PreA+轮融资，九坤创投领投，BV百度风投跟投</div>
+    </div><div class="app-card rtc-app">
+        <span class="new-badge">NEW</span>
+        <div class="app-name">Pico VR语聊<span class="rtc-badge">RTC</span><span class="rtc-score score-high">RTC 强相关</span> <span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span></div>
+        <div class="app-desc">字节跳动VR平台Pico开放语聊公会入驻</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 核心依赖RTC：VR语聊房需要空间音频+低延迟语音SDK，技术门槛更高</span><br>🌍 全球<br>📊 首月分成91.5%，稳定期90%，加5%搬家费</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">Amora<span class="rtc-score score-medium">RTC 关联</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></div>
+        <div class="app-desc">AI占星社交产品，主打Soulmate灵魂伴侣画像匹配，Starla印尼本地化版</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 中度相关：Soulmate匹配成功后的社交互动可能需要IM/语音聊天能力</span><br>🌍 印尼/东南亚<br>📊 冲到印尼下载总榜39位，月入20万美元</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">Coverstar <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></div>
+        <div class="app-desc">面向Alpha世代（2010年后出生）的安全社交平台，砍掉私信和无限下拉，引导内容创作</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 低：砍掉了私信功能，但未来如果加入群组视频创作可能需要RTC能力</span><br>🌍 北美/欧洲<br>📊 a16z Speedrun领投200万美元，登上美国社交免费榜第12名</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">Cal AI <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></div>
+        <div class="app-desc">AI卡路里追踪App，拍照算热量</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 低：健康追踪场景，社区功能可能使用IM能力</span><br>🌍 全球<br>📊 年营收5000万美元，下载量1500万，被MyFitnessPal收购，创始人仅19岁</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">BitePal <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></div>
+        <div class="app-desc">Reface旗下AI卡路里追踪应用，&quot;养宠浣熊&quot;玩法切入健康赛道</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 低：主要是工具型产品，养宠社区可能有IM需求</span><br>🌍 全球<br>📊 月下载180万次，月流水300万美元</div>
+    </div><div class="app-card">
+        
+        <div class="app-name">Last Asylum <span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></div>
+        <div class="app-desc">三七互娱哥特风放置街机SLG，中世纪&quot;鸟嘴面具医生&quot;题材</div>
+        <div class="app-meta"><span style="color:var(--cyan);">📡 低：SLG游戏可能有联盟语音/文字聊天需求</span><br>🌍 全球（登上10+国家免费榜TOP1）<br>📊 总下载约109万，收入约75万美元，日流水5-7万美元，三七互娱旗下</div>
+    </div></div></div><div class="section"><div class="section-title"><span class="icon">📡</span> RTC 实时互动洞察</div><div class="insight-card rtc-related">
+        <h3>苹果大规模下架社交App加速行业合规洗牌，具备审核能力的RTC SDK将成为刚需<span class="rtc-badge">RTC</span></h3>
+        <div><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></div>
+        <div class="body">2月24日，苹果App Store一夜下架百余款出海社交类应用，仅美国地区就有81个社交类App突发下架。被波及的产品包括Joi（近30天全球下载超6.36万，收入259.21万美元，84%来自美国）、Coco、Monkey Run等，共性是主打陌生人即时视频聊天/语音连线，采用虚拟货币变现机制。核心触发因素包括：实时UGC内容难以提前审核、未成年人保护不到位、隐私权限过高、诱导消费。这次下架是苹果持续收紧审核政策的缩影——从2024年开始，苹果对&quot;1-on-1 video chat&quot;类应用的审核标准已多次升级。底层逻辑是全球监管趋势：欧盟DSA、美国KOSA法案、各国对未成年人在线保护的立法都在加码。对RTC意味着什么？第一，单纯提供音视频通道的SDK将不再满足市场需求，开发者急需&quot;RTC+内容安全&quot;一体化方案，包括实时AI内容审核（视频流中的裸露检测、暴力检测）、年龄验证集成、录制合规存档。第二，被下架的产品不会消失，它们会重新上架或转移到安卓生态，但需要更完善的合规基建。第三，中小开发者自建审核系统成本过高，会倾向选择提供合规能力的商业SDK。预判：未来6-12个月，&quot;RTC+Trust &amp; Safety&quot;将成为出海社交SDK选型的核心考量维度。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 RTC SDK的竞争已从&quot;音视频质量&quot;升维到&quot;合规能力&quot;，腾讯应将内容审核能力作为TRTC出海的核心差异化卖点</span><span class="meta-item opportunity">🎯 立即推出TRTC出海合规套件：集成实时视频AI审核、年龄验证、合规录制回放，针对被下架的社交App开发者做精准BD</span><span class="meta-item risk">⚠️ 声网Agora已有Extensions Marketplace提供第三方审核集成，LiveKit等开源方案也在快速补齐内容安全生态</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 百余款社交应用突发下架，苹果新规&quot;亮剑&quot;，匿名社交该何去何从？</div>
+    </div><div class="insight-card rtc-related">
+        <h3>AI Agent（OpenClaw）生态爆发正在催生新一代实时通信基础设施需求<span class="rtc-badge">RTC</span></h3>
+        <div><span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag tag-rtc" style="background:#0984e3;color:#0f1117;">💬 IM 即时通讯</span></div>
+        <div class="body">OpenClaw作为开源AI Agent工具在中国的发酵速度远超硅谷想象。The Information报道显示，字节、阿里、腾讯三大云平台已集体上线OpenClaw云服务，而AWS/Azure/Google Cloud尚未跟进。在应用层面，Agent正在快速接入群聊场景——QQ开放个人用户免费接入AI机器人（1个QQ号最多5个），腾讯大厦门口几小时内就有几百只OpenClaw被安装。围绕Agent生态，三个维度的RTC/IM需求正在涌现：1) Agent接入群聊需要IM消息通道，包括文本、图片、文件等多模态消息能力；2) Agent语音交互需要低延迟语音识别+TTS的实时流式处理；3) 多Agent协作需要实时数据同步通道。从技术指标看，Agent对延迟的要求甚至高于人类——人类可以容忍200ms延迟，但Agent间协作可能需要50ms以内的响应。这意味着现有RTC基础设施需要为AI-to-AI通信做适配。预判：2026年下半年，&quot;Agent Communication Protocol&quot;将成为RTC领域的新标准战场，谁先定义Agent间的实时通信协议，谁就能在AI Agent时代占据基础设施层的话语权。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 AI Agent不是RTC的竞争者，而是RTC最大的增量市场——每个Agent都需要实时通信能力</span><span class="meta-item opportunity">🎯 1) 基于腾讯IM SDK开发Agent Communication Kit，支持Agent快速接入QQ/微信/企微群聊；2) 推出Agent Voice SDK，提供流式ASR+TTS+对话管理一体化方案</span><span class="meta-item risk">⚠️ 字节豆包的Agent生态正快速扩张，可能自建通信层；开源社区Pion+WebRTC方案对Agent通信场景有天然适配优势</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 OpenClaw在中国AI圈的发酵和扩散速度，远超硅谷想象、OpenClaw&quot;养虾&quot;，WiFi&quot;穿墙&quot;透视，两大AI开源项目引爆GitHub</div>
+    </div><div class="insight-card rtc-related">
+        <h3>AI社交新范式（Elys赛博分身）验证了&quot;AI做社交做功&quot;的产品逻辑，将驱动IM基础设施升级<span class="rtc-badge">RTC</span></h3>
+        <div><span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag tag-rtc" style="background:#0984e3;color:#0f1117;">💬 IM 即时通讯</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></div>
+        <div class="body">AI社交产品Elys内测引发刷屏级关注，邀请码在闲鱼一度被标到100元。其核心创新是&quot;赛博分身做预社交&quot;——AI分身替用户完成评论、点赞、连接等社交做功，用户只负责确认和校准。一个用户10小时使用时间，发5条帖子收获170条反馈，但只涨3个粉丝，因为大部分互动来自其他用户的AI分身。这个产品逻辑对IM/RTC的启示深远：1) 消息量爆发——每个真人用户背后有一个或多个AI分身在持续产生消息，IM系统需要处理的消息量可能增加10-100倍；2) 消息类型变化——AI分身的&quot;内心OS&quot;、记忆更新、社交汇报等需要新的消息类型和推送策略；3) 从&quot;人-人&quot;通信到&quot;人-AI-人&quot;通信——IM SDK需要支持三方通信模型。从商业化角度，MiniMax的Talkie已验证AI社交的商业模式（MiniMax年收入7904万美元，海外占73%），而Elys进一步证明AI分身可以承担社交做功。捏Ta也完成超千万美元PreA+轮融资（九坤创投领投），AI原生社区赛道持续获得资本加注。预判：2026年将是&quot;AI分身社交&quot;产品的爆发年，底层IM基础设施需要为10倍消息量、新消息类型、AI-Human混合通信做好准备。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 AI社交正在从&quot;AI增强社交&quot;进化为&quot;AI代理社交&quot;，IM SDK需要从支持&quot;人与人通信&quot;升级为支持&quot;人、AI、Agent三方通信&quot;</span><span class="meta-item opportunity">🎯 开发TRTC/IM的&quot;AI社交增强套件&quot;：支持AI分身身份管理、AI消息类型、高并发AI消息投递、AI-Human通信审计</span><span class="meta-item risk">⚠️ MiniMax自研通信能力持续增强，Talkie在海外已形成数据闭环；Elys背后技术团队实力不明但产品力极强</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 36氪出海·AI｜赛博分身出击，AI社交Elys一夜刷屏、MiniMax交卷，闫俊杰瞄准三大战场</div>
+    </div><div class="insight-card rtc-related">
+        <h3>语聊房赛道进入品牌化竞争新阶段，氧气语音亿元级投入标志头部玩家加速整合<span class="rtc-badge">RTC</span></h3>
+        <div><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span></div>
+        <div class="body">氧气语音官宣张韶涵为代言人，签约费用达数千万，&quot;氧气明星季&quot;总投入将超亿元。在行业普遍收缩、降本增效的大背景下，这一动作释放了三个强信号：1) 语聊房赛道远未到天花板，头部平台仍在加码——氧气语音能拿出千万级品牌投放，说明其营收和利润支撑得起这种投入水平；2) 行业正在经历&quot;优胜劣汰&quot;洗牌，不少平台因合规问题或资金链断裂关停，幸存的头部平台将获得更大市场份额；3) 品牌化是语聊房从&quot;灰色地带&quot;走向&quot;主流娱乐&quot;的必经之路，明星代言提升用户信任度和获客效率。此前氧气语音已合作王心凌、Uzi、范丞丞、孟子义等多位明星，资源储备领先同行。同时，Pico（字节跳动VR平台）也在吸引语聊公会入驻，首月分成91.5%、稳定期90%，加上5%搬家费，显示VR语聊也在争夺公会资源。对RTC的启示：语聊房头部平台的SDK选型具有极强的粘性和示范效应，一旦绑定很难切换。氧气语音的亿元级投入意味着其RTC用量将大幅增长。</div>
+        <div class="meta-row"><span class="meta-item judgment">💡 语聊房赛道正在从&quot;百花齐放&quot;转向&quot;寡头整合&quot;，绑定头部平台的RTC SDK将获得持续增长红利</span><span class="meta-item opportunity">🎯 主动接触氧气语音技术团队，了解其当前RTC方案和痛点；同时关注Pico VR语聊场景的RTC需求——VR环境对空间音频有更高要求</span><span class="meta-item risk">⚠️ 声网在语聊房领域深耕多年，氧气语音等头部平台可能已使用Agora方案；Pico有字节自研的RTC能力支撑</span></div>
+        <div style="margin-top:10px;font-size:0.82em;color:var(--text2);">📎 氧气语音官宣张韶涵，将影响语音圈未来三年格局？！、夯！首月91.5%！稳定期90%！Pico限时给你5%搬家费！</div>
+    </div></div><div class="section"><div class="section-title"><span class="icon">📈</span> 趋势信号</div><h4 style="font-size:14px;color:var(--text2);margin:16px 0 8px;">🟢 升温趋势</h4><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>苹果对陌生人视频社交App审核持续收紧，出海社交开发者面临合规升级压力</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">2月24日仅美国地区就有81个社交类App突发下架，Joi近30天收入259.21万美元被波及，产品共性为随机视频聊天+虚拟货币变现</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>中东地缘冲突升级迫使出海企业重新评估区域部署策略</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">美伊冲突导致霍尔木兹海峡停滞，多国领空关闭，美团Keeta必要时暂停中东部分服务，迪拜一度关闭部分领空航线</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>语聊房赛道从野蛮生长进入品牌化整合期，头部平台加大投入</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">氧气语音签约张韶涵代言费数千万，&quot;氧气明星季&quot;总投入超亿元；Pico以91.5%首月分成吸引公会</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>谷歌大幅降低Play Store开发者费率，降低出海App分发成本</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">谷歌将应用商店内购佣金降至20%，使用谷歌支付额外加收5%，新用户安装服务费降至20%，同时开放第三方支付和第三方应用商店</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>中国AI大模型Token消耗全球占比超60%，AI基础设施出海进入加速期</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">OpenRouter数据：平台前十模型Token消耗8.7万亿，中国模型占5.3万亿（61%），MiniMax M2.5以2.45万亿Token登顶</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction rising">↑</span>
+        <div>
+            <div><strong>健康追踪赛道AI化加速，Cal AI被MyFitnessPal收购验证AI+垂直场景的并购价值</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">Cal AI年营收突破5000万美元，下载量1500万，被MyFitnessPal收购；BitePal月流水300万美元</div>
+        </div>
+    </div><h4 style="font-size:14px;color:var(--text2);margin:16px 0 8px;">🟡 新兴趋势</h4><div class="trend-signal">
+        <span class="direction emerging">★</span>
+        <div>
+            <div><strong>AI Agent（OpenClaw为代表）生态在中国极速爆发，催生Agent-to-Human通信新需求</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🔴 强信号</span></div>
+            <div class="evidence">字节/阿里/腾讯集体上线OpenClaw云服务，QQ开放个人用户免费接入AI机器人（1个QQ号最多5个），腾讯大厦门口几小时内几百只被安装</div>
+        </div>
+    </div><div class="trend-signal">
+        <span class="direction emerging">★</span>
+        <div>
+            <div><strong>AI社交产品进入&quot;分身代理社交&quot;新范式，消息量和交互复杂度数量级跃升</strong>
+            <span style="font-size:0.8em;color:var(--text2);margin-left:8px;">🟡 中等</span></div>
+            <div class="evidence">Elys邀请码闲鱼炒到100元，单用户10小时使用时间，发5条帖子获170条反馈；捏Ta完成超千万美元PreA+融资</div>
+        </div>
+    </div></div><div class="section"><div class="section-title"><span class="icon">💰</span> 商机线索</div><div class="biz-opp high">
+        <h4><span style="color:var(--red);font-size:11px;font-weight:600;">[紧急]</span> 被下架社交App开发者急需&quot;RTC+内容安全&quot;一体化方案 · 🌍 全球（美国为主）</h4>
+        <div class="desc">苹果一夜下架100+款出海社交App，这些开发者需要重新上架就必须升级合规能力。他们急需集成AI实时内容审核（裸露检测/暴力检测）、年龄验证、合规录制的RTC SDK。仅Joi一个App近30天收入就有259万美元，整个陌生人视频社交赛道年规模数十亿美元。</div>
+        <div class="actions"><div class="action-item">整理被下架的社交App清单（至少81个），获取其开发者联系方式</div><div class="action-item">包装TRTC出海合规方案：AI实时视频审核+年龄验证+合规录制，出一版solution brief</div><div class="action-item">在出海社交开发者社群（如语音葫芦、扬帆出海）发布合规解决方案案例</div></div>
+    </div><div class="biz-opp high">
+        <h4><span style="color:var(--red);font-size:11px;font-weight:600;">[紧急]</span> AI Agent通信基础设施——为Agent接入IM群聊提供SDK · 🌍 全球</h4>
+        <div class="desc">OpenClaw等AI Agent正在快速接入QQ/微信/企微群聊，QQ已开放个人用户免费接入（1号5机器人）。当前Agent接入群聊的通信方案多为hack式方案，缺乏官方SDK支持。如果腾讯IM推出Agent Communication Kit，可以抢占AI Agent通信基础设施层。</div>
+        <div class="actions"><div class="action-item">与腾讯云IM团队协同，评估推出Agent Communication SDK的可行性</div><div class="action-item">调研当前OpenClaw等Agent接入QQ群聊的技术方案和痛点</div><div class="action-item">联系OpenClaw核心开发者社区，了解他们对Agent通信SDK的需求</div></div>
+    </div><div class="biz-opp medium">
+        <h4><span style="color:var(--orange);font-size:11px;font-weight:600;">[中等]</span> 语聊房头部平台SDK换代窗口期——氧气语音等品牌升级客户 · 🌍 中国/中东/东南亚</h4>
+        <div class="desc">氧气语音等语聊房头部平台正在从&quot;野蛮生长&quot;转向&quot;品牌化竞争&quot;，明星季投入超亿元。品牌升级意味着对音质、稳定性、体验有更高要求，是SDK换代的好时机。同时Pico VR语聊也是新的增量场景。</div>
+        <div class="actions"><div class="action-item">主动联系氧气语音技术团队，了解当前RTC方案及升级需求</div><div class="action-item">准备语聊房场景的TRTC方案对比（vs Agora），突出音质、3D音效、低延迟优势</div><div class="action-item">调研Pico VR语聊的空间音频需求，评估TRTC空间音频方案的适配性</div></div>
+    </div><div class="biz-opp medium">
+        <h4><span style="color:var(--orange);font-size:11px;font-weight:600;">[中等]</span> AI社交产品IM升级需求——Elys/Talkie/捏Ta等产品的通信基建机会 · 🌍 全球</h4>
+        <div class="desc">AI社交产品正从&quot;AI增强社交&quot;进化为&quot;AI代理社交&quot;，Elys的AI分身、Talkie的AI角色、捏Ta的AI社区都需要升级的IM基础设施。需求包括：超高并发AI消息投递、新消息类型（AI内心OS/记忆更新/社交汇报）、人-AI-人三方通信模型。MiniMax年收入已达7904万美元，验证了商业模式。</div>
+        <div class="actions"><div class="action-item">联系Elys产品团队，了解其IM架构和技术选型</div><div class="action-item">联系MiniMax/Talkie技术团队，探讨Talkie海外IM能力的合作可能</div><div class="action-item">开发面向AI社交场景的IM功能模块：AI身份标识、高频小消息优化、AI消息路由</div></div>
+    </div></div><div class="section"><div class="section-title"><span class="icon">📰</span> 文章分类总览</div><table class="data-table"><thead><tr><th>文章</th><th>赛道</th><th>RTC 关联</th><th>摘要</th></tr></thead><tbody><tr>
+                <td style="max-width:300px;"><strong>战火中的中东语聊房：今年斋月的关键词，不是&quot;狂欢&quot;，是&quot;共情&quot;与&quot;避险&quot;</strong></td>
+                <td><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">中东局势影响语聊房斋月运营策略，产品需从&quot;狂欢&quot;转向&quot;共情避险&quot;，RTC场景需求变化</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>夯！首月91.5%！稳定期90%！Pico限时给你5%搬家费！</strong></td>
+                <td><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">字节VR平台Pico用超高分成吸引语聊公会入驻，VR语聊场景需要空间音频RTC能力</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>OpenClaw在中国AI圈的发酵和扩散速度，远超硅谷想象</strong></td>
+                <td><span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">OpenClaw Agent接入群聊需要IM通道，字节/阿里/腾讯集体上线Agent云服务</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·AI｜赛博分身出击，AI社交Elys一夜刷屏</strong></td>
+                <td><span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag tag-rtc" style="background:#0984e3;color:#0f1117;">💬 IM 即时通讯</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">AI社交Elys用赛博分身替用户做预社交，单用户10小时使用，AI分身通信需IM/RTC基建</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>氧气语音官宣张韶涵，将影响语音圈未来三年格局？！</strong></td>
+                <td><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">氧气语音签约张韶涵，明星季投入超亿元，语聊房头部平台品牌化加速，RTC用量将增长</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>百余款社交应用突发下架，苹果新规&quot;亮剑&quot;，匿名社交该何去何从？</strong></td>
+                <td><span class="tag tag-rtc" style="background:#6c5ce7;color:#0f1117;">🎭 互动娱乐</span> <span class="tag tag-rtc" style="background:#00cec9;color:#0f1117;">📡 RTC 音视频</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">苹果下架100+款出海社交App，陌生人视频聊天赛道面临合规洗牌，需RTC+内容审核一体化方案</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>MiniMax交卷，闫俊杰瞄准三大战场</strong></td>
+                <td><span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--cyan)">⬤ 高</td>
+                <td style="font-size:12px;color:var(--text2);">MiniMax年收入7904万美元，海外占73%，Talkie AI社交是增长引擎，AI社交出海商业模式验证</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>OpenClaw&quot;养虾&quot;，WiFi&quot;穿墙&quot;透视，两大AI开源项目引爆GitHub</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">OpenClaw等AI开源项目爆火，涉及Agent自动化控制和隐私安全议题</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>谷歌将全球下调应用开发者费用；亚马逊裁员；捏Ta完成融资丨扬帆晚报</strong></td>
+                <td><span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">捏Ta完成超千万美元PreA+融资，AI原生社区赛道持续获得资本加注</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>美伊冲突下，中国出海生态如何通过&quot;黑天鹅&quot;压力测试？</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag" style="background:#fd79a820;color:#fd79a8;border:1px solid #fd79a840;">🎬 短剧 &amp; 内容</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">中东冲突导致传统贸易通道中断，数字内容和社交产品填补文化真空——RTC基础设施需考虑区域可用性</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>2026全球非游应用趋势报告解读</strong></td>
+                <td><span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag" style="background:#fd79a820;color:#fd79a8;border:1px solid #fd79a840;">🎬 短剧 &amp; 内容</span> <span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">全球非游App趋势：短剧引爆变现、社交品类分化、AI工具崛起，社交品类增长暗含RTC需求</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>半年后旧梗重启，在新兴市场月入百万？</strong></td>
+                <td><span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag tag-rtc" style="background:#e17055;color:#0f1117;">🤖 AI + 实时互动</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">Starla的Soulmate画像从美国火到印尼，Amora月入20万美元，社交玩法跨市场复制潜力</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·行业｜Token出海，将中国电力卖给全世界</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--green)">◉ 中</td>
+                <td style="font-size:12px;color:var(--text2);">中国AI模型占OpenRouter Token消耗61%，AI出海带动基础设施需求——RTC作为AI Agent通信基建有新增量</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>一周要闻NO.190</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">谷歌下调开发者费用、20人团队被68亿收购、OpenAI发布GPT-5.4等一周要闻汇总</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>月流水有望过千万，三七开年就找到了新爆款？</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">三七互娱Last Asylum日流水5-7万美元，放置街机SLG赛道持续火热</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>智能戒指厂商Oura又双叕收购了一家AI初创公司</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Oura收购Doublepoint手势识别公司，估值110亿美元，智能戒指出货550万枚</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>最低15%！谷歌商店降低全球应用开发者分成</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">谷歌Play费率降至20%+5%，开放第三方支付和应用商店，降低出海App分发成本</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>倒计时7天丨城市沙龙·武汉站：共探游戏 &amp; 泛娱乐出海新势能</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">扬帆出海武汉站活动预告，聚焦游戏和泛娱乐出海</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>为什么中国的人形机器人产业在早期市场领先？</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">中国人形机器人2025年出货量全球领先，Unitree出货量是Figure和Tesla的36倍</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>阿里千问技术负责人林俊旸宣布卸任；雷鸟创新联手德国电信发布AI智能眼镜</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">AI眼镜赛道持续升温，雷鸟X3 Pro接入多个AI大模型</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·行业｜2026展望：比亚迪、奇瑞争出海&quot;一哥&quot;</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">中国车企出海加速，车载座舱AI融合趋势——未来车载RTC（远程诊断/车内通话）可能有需求</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>个人开发者做了年入5000万美元的AI App，今天被同赛道No. 1收购</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Cal AI年营收5000万美元被MyFitnessPal收购，AI+垂直场景商业模式验证</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>冲上十个国家免费榜TOP1，三七互娱暗黑题材放置街机SLG异军突起</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Last Asylum总下载109万收入75万美元，放置街机SLG赛道趋势持续</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>Unity海外资源商店禁止国区访问；Rokid AI眼镜接入四大AI模型</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Unity封锁中国区资源商店，Rokid接入Gemini/ChatGPT/DeepSeek/通义千问，MaxClaw移动端上线</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>AWE 2026将在上海开幕（36氪出海·家电消费电子出海报道）</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">家电消费电子出海趋势：品牌化+本土化+AI融合，智能穿戴和AI眼镜赛道活跃</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>a16z领投200万美元，一款产品瞄准北美Alpha世代社交市场</strong></td>
+                <td><span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Coverstar砍掉私信/无限下拉，做Alpha世代安全社交，a16z领投200万美元</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>美团：必要时暂停中东地区服务；阿里巴巴AI品牌统一为千问丨扬帆晚报</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">美团Keeta必要时暂停中东服务，银河通用机器人融资25亿元</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>中国互联网出海一周头条 | 白鲸出品399期</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span> <span class="tag" style="background:#a29bfe20;color:#a29bfe;border:1px solid #a29bfe40;">🎉 社交泛娱乐</span> <span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">BitePal月流水300万美元，AI图片赛道SeaArt AI稳居生成类第1</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>一周要闻NO.189丨Unity被曝可能出售中国业务</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span> <span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--text2)">○ 低</td>
+                <td style="font-size:12px;color:var(--text2);">Unity可能出售中国业务估值超10亿美元；派拉蒙1110亿美元吞下华纳</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·行业｜中企出海2.0：步入体系化深耕，打造品牌矩阵</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">中国家电/制造业出海进入品牌化、本土化生产新阶段，海尔/美的/海信在东南亚建厂</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·市场｜2026年，中国外贸在&quot;惊涛骇浪&quot;中破局</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">中东冲突影响全球贸易链，中国外贸45万亿元但面临地缘政治挑战</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·洞察｜从家庭到创业，她在东南亚美妆赛道开启&quot;第二人生&quot;</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">华人女性在东南亚Shopee做假睫毛跨境电商创业案例</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>&quot;死了么&quot;创始人创业成立新公司；动画电影《深海》启动游戏开发计划</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span> <span class="tag" style="background:#fd79a820;color:#fd79a8;border:1px solid #fd79a840;">🎬 短剧 &amp; 内容</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">游戏和影视行业动态汇总</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·关注｜乱局之下，新加坡&quot;亚洲锚点&quot;价值凸显</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">中东冲突下企业家全球布局分析，新加坡/香港/迪拜三地对比</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>从&quot;拼团&quot;起家，澳洲华人6年打造火遍美澳的网红猫砂品牌</strong></td>
+                <td><span class="tag" style="background:#fdcb6e20;color:#fdcb6e;border:1px solid #fdcb6e40;">🛒 电商/跨境</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">华人在澳洲做豆腐猫砂品牌出海案例</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>直接在搜索框里做规划、编程？Google Search上线AI生产力工具Canvas</strong></td>
+                <td><span class="tag" style="background:#8b5cf620;color:#8b5cf6;border:1px solid #8b5cf640;">⚡ AI 工具 &amp; 效率</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">Google在搜索中集成Canvas AI生产力工具，可生成App和学习计划</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·行业｜医疗健康产业出海——创新药篇（上）</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">全球创新药市场超1.6万亿美元，中国药企加速出海，与RTC无直接关联</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>36氪出海·活动｜中日联结：中国机器人如何打开日本市场？</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">中国机器人出海日本线下活动预告</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>只有6人的游戏发行公司冲击IPO？背后研发团队来自广州</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">6人游戏发行公司JoyByte赴美IPO，年营收2000万美元</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>2月卡塔尔创投要闻</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">卡塔尔投资机遇汇总，中国品牌薇诺娜进入卡塔尔</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>阿联酋央行携手G42旗下Core42打造主权金融云平台</strong></td>
+                <td><span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">中东数字化转型提速，阿联酋AI基金投资，中国车企进入阿联酋</td>
+            </tr><tr>
+                <td style="max-width:300px;"><strong>扬帆每周合作精选No.195</strong></td>
+                <td><span class="tag" style="background:#00b89420;color:#00b894;border:1px solid #00b89440;">🎮 游戏</span> <span class="tag" style="background:#636e7220;color:#636e72;border:1px solid #636e7240;">📌 其他出海赛道</span></td>
+                <td style="color:var(--border)">· 无</td>
+                <td style="font-size:12px;color:var(--text2);">出海合作需求汇总：游戏海外合作、支付资源、AI工具变现</td>
+            </tr></tbody></table></div>
+    <div class="page-footer">
+        RTC 实时互动洞察追踪系统 · 生成时间: 2026-03-15 22:41 · Powered by Claude AI
+    </div>
+    </div>
+</div>
+<script>
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById(tabId);
+    if (target) target.classList.add('active');
+    // Find and activate the button
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+        if (btn.getAttribute('data-tab') === tabId) {
+            btn.classList.add('active');
+        }
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+
+</body>
+</html>
